@@ -1215,76 +1215,74 @@ function applyTranslations() {
     if (t[k] !== undefined) el.innerHTML = t[k];
   });
   // Hero
-  document.getElementById('badge').textContent = t.badge;
-  document.getElementById('h1-line1').textContent = t.h1_line1;
-  document.getElementById('h1-line2').textContent = t.h1_line2;
-  document.getElementById('h1-em').textContent = t.h1_em;
+  const _el_badge = document.getElementById('badge'); if(_el_badge) _el_badge.textContent = t.badge || '';
+  const _el_h1_line1 = document.getElementById('h1-line1'); if(_el_h1_line1) _el_h1_line1.textContent = t.h1_line1 || '';
+  const _el_h1_line2 = document.getElementById('h1-line2'); if(_el_h1_line2) _el_h1_line2.textContent = t.h1_line2 || '';
+  const _el_h1_em = document.getElementById('h1-em'); if(_el_h1_em) _el_h1_em.textContent = t.h1_em || '';
   document.getElementById('tagline').innerHTML = t.tagline;
-  document.getElementById('cta-buy').textContent = t.cta_buy;
-  document.getElementById('cta-how').textContent = t.cta_how;
-  document.getElementById('trust1').textContent = t.trust1;
-  document.getElementById('trust2').textContent = t.trust2;
-  document.getElementById('trust3').textContent = t.trust3;
+  const _el_cta_buy = document.getElementById('cta-buy'); if(_el_cta_buy) _el_cta_buy.textContent = t.cta_buy || '';
+  const _el_cta_how = document.getElementById('cta-how'); if(_el_cta_how) _el_cta_how.textContent = t.cta_how || '';
+  const _el_trust1 = document.getElementById('trust1'); if(_el_trust1) _el_trust1.textContent = t.trust1 || '';
+  const _el_trust2 = document.getElementById('trust2'); if(_el_trust2) _el_trust2.textContent = t.trust2 || '';
+  const _el_trust3 = document.getElementById('trust3'); if(_el_trust3) _el_trust3.textContent = t.trust3 || '';
   // Features
-  document.getElementById('feat-label').textContent = t.feat_label;
-  document.getElementById('feat-title').innerHTML = t.feat_title;
-  document.getElementById('feat-sub').textContent = t.feat_sub;
+  const _el_feat_label = document.getElementById('feat-label'); if(_el_feat_label) _el_feat_label.textContent = t.feat_label || '';
+  const _el2_feat_title = document.getElementById('feat-title'); if(_el2_feat_title) _el2_feat_title.innerHTML = t.feat_title || '';
+  const _el_feat_sub = document.getElementById('feat-sub'); if(_el_feat_sub) _el_feat_sub.textContent = t.feat_sub || '';
   for (let i=1;i<=6;i++) {
-    document.getElementById('f'+i+'t').textContent = t['f'+i+'t'];
-    document.getElementById('f'+i+'p').textContent = t['f'+i+'p'];
+    const ft = document.getElementById('f'+i+'t'); if(ft) ft.textContent = t['f'+i+'t'] || '';
+    const fp = document.getElementById('f'+i+'p'); if(fp) fp.textContent = t['f'+i+'p'] || '';
   }
   // How
-  document.getElementById('how-label').textContent = t.how_label;
-  document.getElementById('how-title').innerHTML = t.how_title;
+  const _el_how_label = document.getElementById('how-label'); if(_el_how_label) _el_how_label.textContent = t.how_label || '';
+  const _el2_how_title = document.getElementById('how-title'); if(_el2_how_title) _el2_how_title.innerHTML = t.how_title || '';
   for (let i=1;i<=4;i++) {
-    document.getElementById('s'+i+'t').textContent = t['s'+i+'t'];
-    document.getElementById('s'+i+'p').textContent = t['s'+i+'p'];
+    const st = document.getElementById('s'+i+'t'); if(st) st.textContent = t['s'+i+'t'] || '';
+    const sp = document.getElementById('s'+i+'p'); if(sp) sp.textContent = t['s'+i+'p'] || '';
   }
   // Pricing
-  document.getElementById('price-label').textContent = t.price_label;
-  document.getElementById('price-title').textContent = t.price_title;
-  document.getElementById('price-sub').textContent = t.price_sub;
-  for (let i=1;i<=3;i++) {
-    document.getElementById('p'+i+'name').textContent = t['p'+i+'name'];
+  const _el_price_label = document.getElementById('price-label'); if(_el_price_label) _el_price_label.textContent = t.price_label || '';
+  const _el_price_title = document.getElementById('price-title'); if(_el_price_title) _el_price_title.textContent = t.price_title || '';
+  const _el_price_sub = document.getElementById('price-sub'); if(_el_price_sub) _el_price_sub.textContent = t.price_sub || '';
+  // Trial banner
+  if (t.trial_label) {
+    const tl = document.getElementById('trial-label'); if(tl) tl.textContent = t.trial_label;
+    const tt = document.getElementById('trial-title'); if(tt) tt.textContent = t.trial_title;
+    const ts = document.getElementById('trial-sub'); if(ts) ts.textContent = t.trial_sub;
+    const tb = document.getElementById('trial-btn'); if(tb) tb.textContent = t.trial_cta;
+  }
+  if (t.api_disclaimer) {
+    const ad = document.getElementById('api-disclaimer'); if(ad) ad.textContent = t.api_disclaimer;
+  }
+  for (let i=1;i<=2;i++) {
+    const nameEl = document.getElementById('p'+i+'name'); if(nameEl) nameEl.textContent = t['p'+i+'name'] || '';
     const priceEl = document.getElementById('p'+i+'price');
     if (priceEl) {
-      const pv = t['p'+i+'price'];
+      const pv = t['p'+i+'price'] || '';
       if (pv === 'Gratis' || pv === 'Free' || pv === 'Gratuit') {
-        priceEl.innerHTML = pv;
-      } else if (i === 3) {
         priceEl.innerHTML = pv;
       } else {
         priceEl.innerHTML = '<sup>€</sup>'+pv;
       }
     }
-    document.getElementById('p'+i+'period').textContent = t['p'+i+'period'];
-    document.getElementById('p'+i+'btn').textContent = t['p'+i+'btn'];
-    // Trial banner
-    if (t.trial_label) {
-      const tl = document.getElementById('trial-label'); if(tl) tl.textContent = t.trial_label;
-      const tt = document.getElementById('trial-title'); if(tt) tt.textContent = t.trial_title;
-      const ts = document.getElementById('trial-sub'); if(ts) ts.textContent = t.trial_sub;
-      const tb = document.getElementById('trial-btn'); if(tb) tb.textContent = t.trial_cta;
-    }
-    if (t.api_disclaimer) {
-      const ad = document.getElementById('api-disclaimer'); if(ad) ad.textContent = t.api_disclaimer;
-    }
-    const maxf = i===2?6:5;
+    const periodEl = document.getElementById('p'+i+'period'); if(periodEl) periodEl.textContent = t['p'+i+'period'] || '';
+    const btnEl = document.getElementById('p'+i+'btn'); if(btnEl) btnEl.textContent = t['p'+i+'btn'] || '';
+    const maxf = i===1?5:6;
     for (let j=1;j<=maxf;j++) {
       const el = document.getElementById('p'+i+'f'+j);
       if (el && t['p'+i+'f'+j]) el.textContent = t['p'+i+'f'+j];
     }
   }
   // Privacy
-  document.getElementById('priv-label').textContent = t.priv_label;
-  document.getElementById('priv-title').textContent = t.priv_title;
-  document.getElementById('priv-em').textContent = t.priv_em;
-  document.getElementById('priv-p1').textContent = t.priv_p1;
-  document.getElementById('priv-p2').textContent = t.priv_p2;
-  document.getElementById('stat1l').textContent = t.stat1l;
-  document.getElementById('stat2l').textContent = t.stat2l;
-  document.getElementById('stat3l').textContent = t.stat3l;
-  document.getElementById('stat4l').textContent = t.stat4l;
+  const _el_priv_label = document.getElementById('priv-label'); if(_el_priv_label) _el_priv_label.textContent = t.priv_label || '';
+  const _el_priv_title = document.getElementById('priv-title'); if(_el_priv_title) _el_priv_title.textContent = t.priv_title || '';
+  const _el_priv_em = document.getElementById('priv-em'); if(_el_priv_em) _el_priv_em.textContent = t.priv_em || '';
+  const _el_priv_p1 = document.getElementById('priv-p1'); if(_el_priv_p1) _el_priv_p1.textContent = t.priv_p1 || '';
+  const _el_priv_p2 = document.getElementById('priv-p2'); if(_el_priv_p2) _el_priv_p2.textContent = t.priv_p2 || '';
+  const _el_stat1l = document.getElementById('stat1l'); if(_el_stat1l) _el_stat1l.textContent = t.stat1l || '';
+  const _el_stat2l = document.getElementById('stat2l'); if(_el_stat2l) _el_stat2l.textContent = t.stat2l || '';
+  const _el_stat3l = document.getElementById('stat3l'); if(_el_stat3l) _el_stat3l.textContent = t.stat3l || '';
+  const _el_stat4l = document.getElementById('stat4l'); if(_el_stat4l) _el_stat4l.textContent = t.stat4l || '';
   // Footer
   // Requirements
   var reqIds = ['req-label','req-title','req-sub','req-min-label','req-rec-label',
@@ -1299,15 +1297,15 @@ function applyTranslations() {
     var el = document.getElementById(id);
     if (el && t[k2]) el.textContent = t[k2];
   });
-  document.getElementById('footer-support').textContent = t.footer_support;
-  document.getElementById('footer-docs').textContent = t.footer_docs;
-  document.getElementById('footer-license').textContent = t.footer_license;
+  const _el_footer_support = document.getElementById('footer-support'); if(_el_footer_support) _el_footer_support.textContent = t.footer_support || '';
+  const _el_footer_docs = document.getElementById('footer-docs'); if(_el_footer_docs) _el_footer_docs.textContent = t.footer_docs || '';
+  const _el_footer_license = document.getElementById('footer-license'); if(_el_footer_license) _el_footer_license.textContent = t.footer_license || '';
   // Chat mockup
-  document.getElementById('chat-label').textContent = t.chat_label;
-  document.getElementById('chat-q1').textContent = t.chat_q1;
-  document.getElementById('chat-q2').textContent = t.chat_q2;
-  document.getElementById('chat-placeholder').textContent = t.chat_placeholder;
-  document.getElementById('chat-code-label').textContent = t.chat_code_label;
+  const _el_chat_label = document.getElementById('chat-label'); if(_el_chat_label) _el_chat_label.textContent = t.chat_label || '';
+  const _el_chat_q1 = document.getElementById('chat-q1'); if(_el_chat_q1) _el_chat_q1.textContent = t.chat_q1 || '';
+  const _el_chat_q2 = document.getElementById('chat-q2'); if(_el_chat_q2) _el_chat_q2.textContent = t.chat_q2 || '';
+  const _el_chat_placeholder = document.getElementById('chat-placeholder'); if(_el_chat_placeholder) _el_chat_placeholder.textContent = t.chat_placeholder || '';
+  const _el_chat_code_label = document.getElementById('chat-code-label'); if(_el_chat_code_label) _el_chat_code_label.textContent = t.chat_code_label || '';
 }
 </script>
 </body>
