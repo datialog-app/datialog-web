@@ -742,7 +742,7 @@ nav {
   <div style="text-align:center">
     <div class="section-label" id="price-label">Precios</div>
     <h2 class="section-title" id="price-title">Simple. Sin sorpresas.</h2>
-    <p class="section-sub" style="margin:0 auto 64px" id="price-sub">Pago único, licencia de por vida para un dispositivo. Sin suscripciones mensuales.</p>
+    <p class="section-sub" style="margin:0 auto 64px" id="price-sub">Prueba 1 día gratis sin compromiso. El precio de 12.10€/año cubre únicamente los costes mínimos de dominio y servidor — no es un precio de mercado, es simbólico.</p>
   </div>
   <div style="background:linear-gradient(135deg,#1e4db7,#2f65d4);border-radius:14px;padding:28px 36px;
     max-width:680px;margin:0 auto 40px;display:flex;align-items:center;justify-content:space-between;
@@ -750,8 +750,8 @@ nav {
     <div>
       <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.7);
         text-transform:uppercase;margin-bottom:6px" id="trial-label">Prueba gratuita</div>
-      <div style="font-size:22px;font-family:var(--serif);color:#fff;margin-bottom:4px" id="trial-title">1 día gratis, sin tarjeta</div>
-      <div style="font-size:13px;color:rgba(255,255,255,.75)" id="trial-sub">Acceso completo durante 24 horas. Solo necesitas tu email.</div>
+      <div style="font-size:22px;font-family:var(--serif);color:#fff;margin-bottom:4px" id="trial-title">5 días gratis, sin tarjeta</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.75)" id="trial-sub">Acceso completo durante 5 días. Solo necesitas tu email. ¿Correo universitario? <a href="#student" style="color:#fbbf24;text-decoration:underline">30 días gratis</a>.</div>
     </div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
       <input type="email" id="trial-email" placeholder="tu@email.com"
@@ -763,6 +763,27 @@ nav {
         Empezar trial →</button>
     </div>
     <div id="trial-msg" style="width:100%;font-size:12px;color:rgba(255,255,255,.8);min-height:16px"></div>
+  </div>
+
+  <!-- Student license -->
+  <div id="student" style="background:linear-gradient(135deg,#064e3b,#065f46);border-radius:14px;padding:24px 36px;
+    max-width:680px;margin:0 auto 28px;border:1px solid rgba(16,185,129,.3)">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:#6ee7b7;
+      text-transform:uppercase;margin-bottom:6px">🎓 Licencia para estudiantes</div>
+    <div style="font-size:18px;font-family:var(--serif);color:#fff;margin-bottom:4px">30 días gratis con correo universitario</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.75);margin-bottom:16px">
+      Si tienes un correo universitario (.edu, unir.net, .ac.uk y similares) obtén 30 días de acceso completo gratis.
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <input type="email" id="student-email" placeholder="tu@universidad.edu"
+        style="padding:10px 16px;border-radius:8px;border:none;font-size:14px;
+        font-family:var(--sans);background:rgba(255,255,255,.15);color:#fff;outline:none;min-width:220px">
+      <button onclick="requestStudent()" id="student-btn"
+        style="padding:10px 24px;background:#10b981;color:#fff;border:none;border-radius:8px;
+        font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer">
+        Solicitar licencia →</button>
+    </div>
+    <div id="student-msg" style="width:100%;font-size:12px;color:rgba(255,255,255,.8);min-height:16px;margin-top:8px"></div>
   </div>
 
   <div class="pricing-cards">
@@ -958,18 +979,18 @@ const T = {
     s2t: 'Activa', s2p: 'Introduce tu clave de licencia. Un clic y Datialog queda vinculado a tu dispositivo.',
     s3t: 'Carga', s3p: 'Arrastra tu CSV, Excel, Stata o SAS. Datialog analiza la estructura automáticamente.',
     s4t: 'Pregunta', s4p: 'Escribe en lenguaje natural. Datialog genera, ejecuta y muestra los resultados.',
-    price_label: 'Precios', price_title: 'Simple. Sin sorpresas.',
-    price_sub: 'Prueba 1 día gratis. Si te gusta, suscríbete por solo 12.10€/año IVA incluido.',
-    trial_label: 'Prueba gratuita', trial_title: '1 día gratis, sin tarjeta',
-    trial_sub: 'Acceso completo durante 24 horas. Solo necesitas tu email.',
+    price_label: 'Precios', price_title: 'Simple. Transparente.',
+    price_sub: 'Prueba 1 día gratis sin compromiso. El precio de 12.10€/año cubre únicamente los costes mínimos de dominio y servidor — no es un precio de mercado, es simbólico.',
+    trial_label: 'Prueba gratuita', trial_title: '5 días gratis, sin tarjeta',
+    trial_sub: 'Acceso completo durante 5 días. Solo necesitas tu email. Correo universitario: 30 días gratis.',
     trial_cta: 'Empezar trial →',
-    p1name: 'Trial', p1price: 'Gratis', p1period: '24 horas · con email',
-    p1f1: 'Acceso completo 1 día', p1f2: 'Modelos locales (Ollama)', p1f3: 'Todos los formatos',
+    p1name: 'Trial', p1price: 'Gratis', p1period: '5 días · con email',
+    p1f1: 'Acceso completo 5 días', p1f2: 'Modelos locales (Ollama)', p1f3: 'Todos los formatos',
     p1f4: 'Sin tarjeta de crédito', p1f5: 'Email de activación inmediato', p1btn: 'Probar gratis',
-    p2name: 'Suscripción', p2price: '12.10', p2period: 'año · IVA incluido · renovación anual',
+    p2name: 'Suscripción', p2price: '12.10', p2period: 'año · IVA incluido · se renueva cada año',
     p2f1: '1 dispositivo', p2f2: 'Ollama (local) + Groq + OpenAI + Claude*',
     p2f3: 'EDA automático', p2f4: 'Consola Python integrada',
-    p2f5: 'Actualizaciones incluidas', p2f6: 'Soporte por email', p2btn: 'Suscribirse →',
+    p2f5: 'Actualizaciones durante 1 año', p2f6: 'Soporte por email', p2btn: 'Suscribirse →',
     api_disclaimer: '* El uso de APIs externas (OpenAI, Anthropic, Groq) requiere una clave de API propia de cada proveedor. Con estas APIs, los datos viajan a sus servidores. Para máxima privacidad usa Ollama en local.',
     priv_label: 'Privacidad primero', priv_title: 'Tus datos son tuyos.', priv_em: 'Siempre.',
     priv_p1: 'A diferencia de ChatGPT o herramientas cloud, Datialog procesa todo en tu ordenador. El modelo de IA corre en local con Ollama — ningún dato tuyo viaja a servidores externos.',
@@ -1019,18 +1040,18 @@ const T = {
     s2t: 'Activate', s2p: 'Enter your license key. One click and Datialog is linked to your device.',
     s3t: 'Load', s3p: 'Drag your CSV, Excel, Stata or SAS. Datialog analyzes the structure automatically.',
     s4t: 'Ask', s4p: 'Write in plain language. Datialog generates, executes and shows results.',
-    price_label: 'Pricing', price_title: 'Simple. No surprises.',
-    price_sub: 'Try free for 1 day. If you like it, subscribe for just €12.10/year VAT included.',
-    trial_label: 'Free trial', trial_title: '1 day free, no credit card',
-    trial_sub: 'Full access for 24 hours. Just your email.',
+    price_label: 'Pricing', price_title: 'Simple. Transparent.',
+    price_sub: 'Try free for 1 day with no commitment. The €12.10/year price only covers the minimum costs of domain and server — it is symbolic, not a market price.',
+    trial_label: 'Free trial', trial_title: '5 days free, no credit card',
+    trial_sub: 'Full access for 5 days. Just your email. University email: 30 days free.',
     trial_cta: 'Start trial →',
-    p1name: 'Trial', p1price: 'Free', p1period: '24 hours · email only',
-    p1f1: 'Full access for 1 day', p1f2: 'Local models (Ollama)', p1f3: 'All formats',
+    p1name: 'Trial', p1price: 'Free', p1period: '5 days · email only',
+    p1f1: 'Full access for 5 days', p1f2: 'Local models (Ollama)', p1f3: 'All formats',
     p1f4: 'No credit card', p1f5: 'Instant activation email', p1btn: 'Try for free',
-    p2name: 'Subscription', p2price: '12.10', p2period: 'year · VAT incl. · auto-renewal',
+    p2name: 'Subscription', p2price: '12.10', p2period: 'year · VAT incl. · renewed annually',
     p2f1: '1 device', p2f2: 'Ollama (local) + Groq + OpenAI + Claude*',
     p2f3: 'Automatic EDA', p2f4: 'Integrated Python console',
-    p2f5: 'Updates included', p2f6: 'Email support', p2btn: 'Subscribe →',
+    p2f5: '1 year of updates', p2f6: 'Email support', p2btn: 'Subscribe →',
     api_disclaimer: '* Using external APIs (OpenAI, Anthropic, Groq) requires your own API key from each provider. With these APIs, your query data travels to their servers. For maximum privacy use Ollama locally.',
     priv_label: 'Privacy first', priv_title: 'Your data is yours.', priv_em: 'Always.',
     priv_p1: 'Unlike ChatGPT or cloud tools, Datialog processes everything on your computer. The AI model runs locally with Ollama — none of your data travels to external servers.',
@@ -1067,6 +1088,30 @@ function setLang(l) {
   lang = l;
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === l.toUpperCase()));
   applyTranslations();
+}
+
+async function requestStudent() {
+  const email = document.getElementById('student-email').value.trim();
+  const msg = document.getElementById('student-msg');
+  const btn = document.getElementById('student-btn');
+  if (!email || !email.includes('@')) { msg.style.color='#fca5a5'; msg.textContent='⚠ Introduce un email válido'; return; }
+  btn.textContent = '⏳ Enviando…'; btn.disabled = true;
+  try {
+    const resp = await fetch('https://datialog-license-server-production.up.railway.app/v1/student', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email})
+    });
+    const d = await resp.json();
+    if (d.success) {
+      msg.style.color = '#86efac';
+      msg.textContent = '✓ ¡Email enviado! Revisa tu bandeja de entrada.';
+      btn.textContent = '✓ Enviado';
+    } else {
+      msg.style.color = '#fca5a5';
+      msg.textContent = d.message || 'Error';
+      btn.textContent = 'Solicitar licencia →'; btn.disabled = false;
+    }
+  } catch(e) { msg.style.color='#fca5a5'; msg.textContent='Error de conexión'; btn.textContent='Solicitar licencia →'; btn.disabled=false; }
 }
 
 async function requestTrial() {
