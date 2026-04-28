@@ -3,168 +3,1324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Datialog — Términos y Condiciones / Terms & Conditions</title>
+<title>Datialog — Natural AI Data Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: system-ui, sans-serif; background: #f8f5ee; color: #1a2744; line-height: 1.7; }
-nav { background: #0a1628; padding: 16px 40px; display: flex; align-items: center; gap: 16px; }
-.logo { font-size: 20px; font-style: italic; color: #4f8ef7; font-family: Georgia, serif; text-decoration: none; }
-main { max-width: 800px; margin: 0 auto; padding: 60px 32px; }
-.lang-sw { display: flex; gap: 8px; margin-bottom: 40px; }
-.lang-btn { padding: 6px 16px; border-radius: 6px; border: 1px solid #1e4db7; cursor: pointer; font-size: 13px; background: transparent; color: #1e4db7; }
-.lang-btn.active { background: #1e4db7; color: #fff; }
-.doc { display: none; }
-.doc.active { display: block; }
-h1 { font-size: 28px; margin-bottom: 8px; color: #0a1628; }
-.date { font-size: 12px; color: #8896b0; margin-bottom: 40px; font-family: monospace; }
-h2 { font-size: 17px; margin: 32px 0 12px; color: #1e4db7; }
-p { margin-bottom: 14px; font-size: 14px; color: #374151; }
-ul { margin: 0 0 14px 20px; font-size: 14px; color: #374151; }
-ul li { margin-bottom: 6px; }
-.highlight { background: #edf1f9; border-left: 3px solid #1e4db7; padding: 12px 16px; border-radius: 4px; margin: 16px 0; font-size: 13px; }
-footer { text-align: center; padding: 32px; font-size: 12px; color: #8896b0; border-top: 1px solid #e5e7eb; margin-top: 60px; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0a1628;
+  --blue: #1e4db7;
+  --blue-lt: #2f65d4;
+  --accent: #4f8ef7;
+  --gold: #c9a84c;
+  --cream: #f8f5ee;
+  --white: #ffffff;
+  --muted: #8896b0;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--navy); color: var(--white); overflow-x: hidden; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 60% 80% at 70% 50%, rgba(79,142,247,.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(79,142,247,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,142,247,.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(201,168,76,.4);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  width: fit-content;
+  background: rgba(201,168,76,.06);
+}
+
+.badge::before { content: '◆'; font-size: 7px; }
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.08;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--accent);
+  display: block;
+}
+
+.tagline {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 48px;
+  max-width: 420px;
+  font-weight: 300;
+}
+
+.tagline strong { color: var(--white); font-weight: 500; }
+
+.cta-group { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all .2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 40px rgba(30,77,183,.4);
+}
+
+.btn-primary:hover {
+  background: var(--blue-lt);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(30,77,183,.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.2);
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.btn-secondary:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.05); }
+
+.trust-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  font-family: var(--mono);
+}
+
+.trust-item span { color: var(--gold); font-size: 14px; }
+
+/* Hero right — chat mockup */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 80px 80px 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.chat-mockup {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,.4);
+  backdrop-filter: blur(10px);
+}
+
+.chat-header {
+  padding: 14px 20px;
+  background: rgba(30,77,183,.2);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-family: var(--mono);
+  color: var(--accent);
+}
+
+.chat-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+.chat-body { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+
+.msg-user {
+  align-self: flex-end;
+  background: var(--blue);
+  color: var(--white);
+  padding: 10px 16px;
+  border-radius: 12px 12px 2px 12px;
+  font-size: 13.5px;
+  max-width: 85%;
+  line-height: 1.5;
+}
+
+.msg-bot {
+  align-self: flex-start;
+  max-width: 90%;
+}
+
+.msg-bot-label { font-size: 10px; font-family: var(--mono); color: var(--muted); margin-bottom: 5px; letter-spacing: 1px; text-transform: uppercase; }
+
+.code-block {
+  background: rgba(0,0,0,.3);
+  border: 1px solid rgba(79,142,247,.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: #7dd3fc;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.result-block {
+  background: rgba(52,211,153,.06);
+  border: 1px solid rgba(52,211,153,.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: #34d399;
+  line-height: 1.6;
+}
+
+.chat-input {
+  padding: 14px 20px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.chat-input-box {
+  flex: 1;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 12.5px;
+  color: var(--muted);
+  font-family: var(--sans);
+}
+
+.chat-send {
+  width: 34px; height: 34px;
+  background: var(--blue);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ── FEATURES ── */
+.features {
+  padding: 100px 80px;
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  color: var(--navy);
+}
+
+.section-sub {
+  font-size: 17px;
+  color: #4a5568;
+  max-width: 600px;
+  line-height: 1.65;
+  margin-bottom: 64px;
+  font-weight: 300;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 32px;
+}
+
+.feature-card {
+  padding: 32px;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid rgba(30,77,183,.1);
+  transition: all .25s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(30,77,183,.12);
+  border-color: rgba(30,77,183,.3);
+}
+
+.feature-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.feature-card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.65;
+}
+
+/* ── HOW IT WORKS ── */
+.how {
+  padding: 100px 80px;
+  background: var(--navy);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 64px;
+  position: relative;
+}
+
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79,142,247,.4), transparent);
+}
+
+.step { text-align: center; position: relative; }
+
+.step-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: rgba(30,77,183,.2);
+  border: 1px solid rgba(79,142,247,.4);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 auto 20px;
+}
+
+.step h4 {
+  font-family: var(--serif);
+  font-size: 17px;
+  margin-bottom: 8px;
+  color: var(--white);
+}
+
+.step p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── PRICING ── */
+.pricing {
+  padding: 100px 80px;
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 64px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.price-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 36px 32px;
+  border: 1px solid rgba(30,77,183,.12);
+  text-align: center;
+  transition: all .25s;
+}
+
+.price-card.featured {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--blue);
+  transform: scale(1.04);
+  box-shadow: 0 20px 60px rgba(30,77,183,.3);
+}
+
+.price-card:hover:not(.featured) {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(30,77,183,.1);
+}
+
+.plan-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+.price-card.featured .plan-name { color: var(--accent); }
+
+.price {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.price sup { font-size: 22px; vertical-align: super; }
+.price-period { font-size: 13px; color: #4a5568; margin-bottom: 28px; }
+.price-card.featured .price-period { color: var(--muted); }
+
+.price-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price-features li {
+  font-size: 13.5px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-card.featured .price-features li { color: rgba(255,255,255,.8); }
+.price-features li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+.price-card.featured .price-features li::before { color: var(--accent); }
+
+/* ── PRIVACY ── */
+.privacy {
+  padding: 80px;
+  background: linear-gradient(135deg, #0a1628 0%, #0f2044 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.privacy-text h2 {
+  font-family: var(--serif);
+  font-size: 38px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.privacy-text p {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.privacy-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  color: var(--accent);
+  font-style: italic;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.stat-label { font-size: 12px; color: var(--muted); font-family: var(--mono); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 40px 80px;
+  background: #060e1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--accent);
+}
+
+.footer-links { display: flex; gap: 28px; }
+.footer-links a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color .2s; }
+.footer-links a:hover { color: var(--white); }
+
+.footer-copy { font-size: 12px; color: var(--muted); font-family: var(--mono); }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10,22,40,.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.nav-logo { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--accent); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color .2s; }
+.nav-links a:hover { color: var(--white); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 120px 32px 60px; }
+  .features { padding: 60px 32px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .how { padding: 60px 32px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .pricing { padding: 60px 32px; }
+  .pricing-cards { grid-template-columns: 1fr; }
+  .price-card.featured { transform: none; }
+  .privacy { grid-template-columns: 1fr; padding: 60px 32px; }
+  footer { flex-direction: column; gap: 20px; padding: 32px; text-align: center; }
+  nav { padding: 16px 24px; }
+  .nav-links { gap: 16px; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+.hero-left > * { animation: fadeUp .7s ease both; }
+.hero-left > *:nth-child(1) { animation-delay: .1s; }
+.hero-left > *:nth-child(2) { animation-delay: .2s; }
+.hero-left > *:nth-child(3) { animation-delay: .3s; }
+.hero-left > *:nth-child(4) { animation-delay: .4s; }
+.hero-left > *:nth-child(5) { animation-delay: .5s; }
+.hero-right { animation: fadeUp .9s .3s ease both; }
+.lang-sw { display:flex; gap:4px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:3px; }
+.lang-btn { font-size:11px; font-family:var(--mono); font-weight:500; padding:4px 10px; border-radius:5px; cursor:pointer; color:var(--muted); border:none; background:transparent; transition:all .15s; }
+.lang-btn.active { background:var(--blue); color:var(--white); }
+.lang-btn:hover:not(.active) { color:var(--white); }
+
 </style>
 </head>
 <body>
+
+<!-- NAV -->
 <nav>
-  <a href="https://datialog.app" class="logo">Datialog</a>
+  <div class="nav-logo">Datialog</div>
+  <div class="nav-links">
+    <a href="#features" data-i="nav_features">Funcionalidades</a>
+    <a href="#how" data-i="nav_how">Cómo funciona</a>
+    <a href="#pricing">☕ Ko-fi</a>
+    <a href="#videos">Demo</a>
+    <a href="#requirements" data-i="nav_req">Requisitos</a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      
+    </div>
+    <a href="https://drive.google.com/uc?export=download&id=1S5n_CVy2dReqkdyHsOLeHnmRNF5s9Y1v" class="btn-primary" style="padding:9px 20px;font-size:13px">⬇ Descargar</a>
+  </div>
 </nav>
-<main>
-  <div class="lang-sw">
-    <button class="lang-btn active" onclick="setLang('es')">ES</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
+
+<!-- HERO -->
+<section class="hero" style="padding-top:70px">
+  <div class="grid-bg"></div>
+  <div class="hero-left">
+    <div class="badge" id="badge">IA local · Tus datos nunca salen</div>
+    <h1><span id="h1-line1">Habla con</span><br><span id="h1-line2">tus datos.</span><br><em id="h1-em">En español.</em></h1>
+    <p class="tagline" id="tagline">
+      Datialog convierte tus <strong>CSVs, Excels y bases de datos</strong> en conversaciones. 
+      Sin código. Sin cloud. <strong>100% privado en tu ordenador.</strong>
+    </p>
+    <div class="cta-group">
+      <a href="https://drive.google.com/uc?export=download&id=1S5n_CVy2dReqkdyHsOLeHnmRNF5s9Y1v" class="btn-primary" id="cta-buy" download>⬇ Descargar gratis</a>
+      <a href="#how" class="btn-secondary" id="cta-how">Ver cómo funciona</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><span>🔒</span> <span id="trust1">Datos 100% locales</span></div>
+      <div class="trust-item"><span>⚡</span> <span id="trust2">Sin suscripción cloud</span></div>
+      <div class="trust-item"><span>🎓</span> <span id="trust3">Para investigadores y analistas</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="chat-mockup">
+      <div class="chat-header"><div class="chat-dot"></div><span id="chat-label">Datialog · Natural AI Data Explorer</span></div>
+      <div class="chat-body">
+        <div class="msg-user" id="chat-q1">¿Cuál es el ROA medio por sector?</div>
+        <div class="msg-bot">
+          <div class="msg-bot-label" id="chat-code-label">Datialog · Código generado</div>
+          <div class="code-block">print(df.groupby('Sector')['roa_ult']<br>&nbsp;&nbsp;.mean().sort_values(ascending=False)<br>&nbsp;&nbsp;.round(2))</div>
+          <div class="result-block">Tecnologia &nbsp;&nbsp;&nbsp; 18.4%<br>Farmacia &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15.2%<br>Banca &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12.8%<br>Energia &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9.1%</div>
+        </div>
+        <div class="msg-user" id="chat-q2">Ahora filtra solo las empresas exportadoras</div>
+      </div>
+      <div class="chat-input">
+        <div class="chat-input-box" id="chat-placeholder">Escribe una pregunta sobre tus datos…</div>
+        <div class="chat-send">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-label" id="feat-label">Funcionalidades</div>
+  <h2 class="section-title" id="feat-title">Todo lo que necesitas<br>para analizar datos sin código</h2>
+  <p class="section-sub" id="feat-sub">Diseñado para investigadores, analistas financieros y profesores que quieren extraer insights de sus datos sin depender de programadores.</p>
+  
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">🗣️</span>
+      <h3 id="f1t">Lenguaje natural</h3>
+      <p id="f1p">Pregunta en español, inglés o francés. Datialog entiende lo que quieres y genera el código Python automáticamente.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔒</span>
+      <h3 id="f2t">100% privado</h3>
+      <p id="f2p">Tus datos nunca salen de tu ordenador. El modelo de IA corre en local con Ollama. Sin cloud, sin riesgos de GDPR.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📊</span>
+      <h3 id="f3t">EDA automático</h3>
+      <p id="f3p">Genera informes de análisis exploratorio completos con un clic. Distribuciones, correlaciones, outliers y nulos.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📈</span>
+      <h3 id="f4t">Visualizaciones</h3>
+      <p id="f4p">Gráficos interactivos con matplotlib, seaborn y plotly. Histogramas, scatter plots, heatmaps y más.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💬</span>
+      <h3 id="f5t">Modo Chat</h3>
+      <p id="f5p">Pregunta teoría estadística, definiciones o metodología sin necesidad de tener datos cargados.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔄</span>
+      <h3 id="f6t">Checkpoint & Undo</h3>
+      <p id="f6p">¿Te equivocaste en una transformación? Vuelve atrás con un clic. Checkpoints automáticos de tu dataset.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-label" style="color:var(--accent)" id="how-label">Cómo funciona</div>
+  <h2 class="section-title" style="color:var(--white)" id="how-title">De cero a análisis<br>en 4 pasos</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4 id="s1t">Instala</h4>
+      <p id="s1p">Ejecuta instalar.bat. Python, Ollama y el modelo de IA se instalan solos.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4 id="s2t">Activa</h4>
+      <p id="s2p">Introduce tu clave de licencia. Un clic y Datialog queda vinculado a tu dispositivo.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4 id="s3t">Carga</h4>
+      <p id="s3p">Arrastra tu CSV, Excel, Stata o SAS. Datialog analiza la estructura automáticamente.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4 id="s4t">Pregunta</h4>
+      <p id="s4p">Escribe en lenguaje natural. Datialog genera, ejecuta y muestra los resultados.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<!-- VIDEOS -->
+<section style="padding:80px;background:#0a1628" id="videos">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+      color:var(--accent);margin-bottom:12px;text-align:center" id="videos-label">Demo</div>
+    <h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);color:#fff;
+      text-align:center;margin-bottom:8px;line-height:1.2" id="videos-title">
+      Míralo en acción
+    </h2>
+    <p style="text-align:center;color:var(--muted);font-size:15px;margin-bottom:56px" id="videos-sub">
+      Vídeos con subtítulos en español e inglés
+    </p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+
+      <!-- Demo video -->
+      <div>
+        <div style="font-size:13px;font-family:var(--mono);color:var(--accent);
+          margin-bottom:10px;letter-spacing:1px" id="video1-label">📊 DEMO — Análisis de datos</div>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+          border-radius:12px;border:1px solid rgba(255,255,255,.1);
+          box-shadow:0 16px 40px rgba(0,0,0,.4)">
+          <iframe src="https://www.youtube.com/embed/kMm45ZmXPCc?cc_load_policy=1&rel=0"
+            style="position:absolute;top:0;left:0;width:100%;height:100%"
+            frameborder="0" allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+          </iframe>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5">
+          ES: Carga un dataset financiero y analízalo en lenguaje natural.<br>
+        </p>
+        <p style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5" id="video1-desc">
+          Carga un dataset financiero y analízalo en lenguaje natural.
+        </p>
+      </div>
+
+      <!-- Installation video -->
+      <div>
+        <div style="font-size:13px;font-family:var(--mono);color:var(--accent);
+          margin-bottom:10px;letter-spacing:1px" id="video2-label">⚙️ INSTALACIÓN — Guía paso a paso</div>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+          border-radius:12px;border:1px solid rgba(255,255,255,.1);
+          box-shadow:0 16px 40px rgba(0,0,0,.4)">
+          <iframe src="https://www.youtube.com/embed/IRiVfh8VPRs?cc_load_policy=1&rel=0"
+            style="position:absolute;top:0;left:0;width:100%;height:100%"
+            frameborder="0" allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+          </iframe>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5" id="video2-desc">
+          Desde cero hasta Datialog funcionando en tu PC en minutos.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div style="text-align:center">
+    <div class="section-label" id="price-label">Apoyo</div>
+    <h2 class="section-title" id="price-title">Datialog es gratuito</h2>
+    <p class="section-sub" style="margin:0 auto 48px" id="price-sub">
+      ES: Datialog es un proyecto personal desarrollado en mis ratos libres. Si te ha resultado útil, puedes invitarme a un café — con eso es suficiente para mantenerlo vivo.<br><br>
+      EN: Datialog is a personal project developed in my spare time. If you found it useful, you can buy me a coffee — that is enough to keep it alive.
+    </p>
+    <a href="https://ko-fi.com/datialog" target="_blank"
+      style="display:inline-flex;align-items:center;gap:10px;background:#FF5E5B;color:#fff;
+      padding:14px 32px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:600;
+      font-family:var(--sans);box-shadow:0 8px 24px rgba(255,94,91,.3);transition:all .2s;margin-bottom:48px"
+      onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 32px rgba(255,94,91,.4)'"
+      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 24px rgba(255,94,91,.3)'">
+      ☕ ES: Invítame a un café &nbsp;·&nbsp; EN: Buy me a coffee
+    </a>
+  </div>
+  <div style="background:linear-gradient(135deg,#1e4db7,#2f65d4);border-radius:14px;padding:28px 36px;
+    max-width:680px;margin:0 auto 40px;display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:20px;box-shadow:0 12px 40px rgba(30,77,183,.3)">
+    <div>
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.7);
+        text-transform:uppercase;margin-bottom:6px" id="trial-label">Prueba gratuita</div>
+      <div style="font-size:22px;font-family:var(--serif);color:#fff;margin-bottom:4px" id="trial-title">5 días gratis, sin tarjeta</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.75)" id="trial-sub">Acceso completo durante 5 días. Solo necesitas tu email. ¿Correo universitario? <a href="#student" style="color:#fbbf24;text-decoration:underline">30 días gratis</a>.</div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <input type="email" id="trial-email" placeholder="tu@email.com"
+        style="padding:10px 16px;border-radius:8px;border:none;font-size:14px;
+        font-family:var(--sans);background:rgba(255,255,255,.15);color:#fff;outline:none;min-width:220px">
+      <button onclick="requestTrial()" id="trial-btn"
+        style="padding:10px 24px;background:#fff;color:var(--blue);border:none;border-radius:8px;
+        font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap">
+        Empezar trial →</button>
+    </div>
+    <div id="trial-msg" style="width:100%;font-size:12px;color:rgba(255,255,255,.8);min-height:16px"></div>
   </div>
 
-  <!-- ESPAÑOL -->
-  <div class="doc active" id="doc-es">
-    <h1>Términos y Condiciones de Uso</h1>
-    <div class="date">Última actualización: 28 de abril de 2026</div>
-
-    <div class="highlight">
-      Al descargar, instalar o usar Datialog, aceptas estos términos en su totalidad. Si no estás de acuerdo, no uses el software.
+  <!-- Student license -->
+  <div id="student" style="background:linear-gradient(135deg,#064e3b,#065f46);border-radius:14px;padding:24px 36px;
+    max-width:680px;margin:0 auto 28px;border:1px solid rgba(16,185,129,.3)">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:#6ee7b7;
+      text-transform:uppercase;margin-bottom:6px">🎓 Licencia para estudiantes</div>
+    <div style="font-size:18px;font-family:var(--serif);color:#fff;margin-bottom:4px">30 días gratis con correo universitario</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.75);margin-bottom:16px">
+      Si tienes un correo universitario (.edu, unir.net, .ac.uk y similares) obtén 30 días de acceso completo gratis.
     </div>
-
-    <h2>1. Descripción del servicio</h2>
-    <p>Datialog es una herramienta de software para el análisis de datos mediante inteligencia artificial, desarrollada por Iván Pastor Sanz (en adelante "el autor"). Se distribuye como aplicación de escritorio local para Windows.</p>
-
-    <h2>2. Licencia de uso</h2>
-    <p>El autor concede al usuario una licencia personal, no exclusiva, intransferible y revocable para usar Datialog en un único dispositivo, sujeta a los siguientes términos:</p>
-    <ul>
-      <li>Uso personal, académico o profesional propio</li>
-      <li>Prohibida la redistribución, reventa o sublicencia</li>
-      <li>Prohibida la ingeniería inversa o descompilación del software</li>
-      <li>Una licencia = un dispositivo</li>
-    </ul>
-
-    <h2>3. Limitación de responsabilidad</h2>
-    <div class="highlight">
-      Datialog se proporciona "tal cual" (AS IS), sin garantías de ningún tipo, expresas o implícitas.
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <input type="email" id="student-email" placeholder="tu@universidad.edu"
+        style="padding:10px 16px;border-radius:8px;border:none;font-size:14px;
+        font-family:var(--sans);background:rgba(255,255,255,.15);color:#fff;outline:none;min-width:220px">
+      <button onclick="requestStudent()" id="student-btn"
+        style="padding:10px 24px;background:#10b981;color:#fff;border:none;border-radius:8px;
+        font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer">
+        Solicitar licencia →</button>
     </div>
-    <p>El autor no será responsable en ningún caso de:</p>
-    <ul>
-      <li>Errores, imprecisiones o sesgos en los análisis generados por los modelos de IA</li>
-      <li>Decisiones tomadas basándose en los resultados de Datialog</li>
-      <li>Pérdida de datos, lucro cesante o daños indirectos de cualquier tipo</li>
-      <li>Incompatibilidades con el hardware o software del usuario</li>
-      <li>Interrupciones en el servicio de licencias o en las APIs externas</li>
-    </ul>
-    <p>El usuario asume toda la responsabilidad sobre el uso que haga del software y sobre la verificación de los resultados antes de tomar decisiones importantes.</p>
-
-    <h2>4. APIs externas y privacidad de datos</h2>
-    <p>Datialog puede conectarse a APIs de terceros (OpenAI, Anthropic, Groq) a elección del usuario. El autor advierte expresamente que:</p>
-    <ul>
-      <li>Al usar APIs externas, las consultas y el contexto de los datos se envían a los servidores de dichos proveedores</li>
-      <li>El carácter de privacidad local de Datialog se pierde al usar APIs externas</li>
-      <li>El usuario es responsable de revisar las políticas de privacidad de cada proveedor</li>
-      <li>El autor no tiene control ni responsabilidad sobre el tratamiento de datos por parte de terceros</li>
-    </ul>
-    <p>Con modelos locales (Ollama), los datos no salen del dispositivo del usuario.</p>
-
-    <h2>5. Precio y pagos</h2>
-    <p>El precio de 12.10€/año (IVA incluido) es simbólico y cubre únicamente los costes mínimos de infraestructura (dominio y servidor). No implica un nivel de servicio garantizado ni soporte técnico formal.</p>
-    <p>Los pagos se procesan a través de Stripe. El autor no almacena datos de tarjetas de crédito.</p>
-    <p><strong>Política de reembolso:</strong> Dado que existe un período de prueba gratuito de 5 días, no se realizan reembolsos una vez activada la suscripción anual, salvo error de doble cobro.</p>
-
-    <h2>6. Modificaciones</h2>
-    <p>El autor se reserva el derecho de modificar estos términos en cualquier momento. Los cambios se comunicarán en datialog.app. El uso continuado del software implica la aceptación de los nuevos términos.</p>
-
-    <h2>7. Jurisdicción</h2>
-    <p>Estos términos se rigen por la legislación española. Para cualquier disputa, las partes se someten a los juzgados y tribunales de Madrid, España.</p>
-
-    <h2>8. Contacto</h2>
-    <p>Para cualquier consulta: <a href="mailto:licencias@datialog.app" style="color:#1e4db7">licencias@datialog.app</a></p>
+    <div id="student-msg" style="width:100%;font-size:12px;color:rgba(255,255,255,.8);min-height:16px;margin-top:8px"></div>
   </div>
 
-  <!-- ENGLISH -->
-  <div class="doc" id="doc-en">
-    <h1>Terms and Conditions of Use</h1>
-    <div class="date">Last updated: April 28, 2026</div>
+</section>
 
-    <div class="highlight">
-      By downloading, installing or using Datialog, you accept these terms in full. If you do not agree, do not use the software.
-    </div>
-
-    <h2>1. Service description</h2>
-    <p>Datialog is a data analysis software tool using artificial intelligence, developed by Iván Pastor Sanz (hereinafter "the author"). It is distributed as a local desktop application for Windows.</p>
-
-    <h2>2. License of use</h2>
-    <p>The author grants the user a personal, non-exclusive, non-transferable and revocable license to use Datialog on a single device, subject to the following terms:</p>
-    <ul>
-      <li>Personal, academic or professional use only</li>
-      <li>Redistribution, resale or sublicensing is prohibited</li>
-      <li>Reverse engineering or decompilation of the software is prohibited</li>
-      <li>One license = one device</li>
-    </ul>
-
-    <h2>3. Limitation of liability</h2>
-    <div class="highlight">
-      Datialog is provided "AS IS", without warranties of any kind, express or implied.
-    </div>
-    <p>The author shall not be liable in any case for:</p>
-    <ul>
-      <li>Errors, inaccuracies or biases in analyses generated by AI models</li>
-      <li>Decisions made based on Datialog results</li>
-      <li>Data loss, loss of profits or indirect damages of any kind</li>
-      <li>Incompatibilities with the user's hardware or software</li>
-      <li>Interruptions in the license service or external APIs</li>
-    </ul>
-    <p>The user assumes full responsibility for their use of the software and for verifying results before making important decisions.</p>
-
-    <h2>4. External APIs and data privacy</h2>
-    <p>Datialog can connect to third-party APIs (OpenAI, Anthropic, Groq) at the user's choice. The author expressly warns that:</p>
-    <ul>
-      <li>When using external APIs, queries and data context are sent to those providers' servers</li>
-      <li>The local privacy nature of Datialog is lost when using external APIs</li>
-      <li>The user is responsible for reviewing each provider's privacy policies</li>
-      <li>The author has no control or responsibility over data processing by third parties</li>
-    </ul>
-    <p>With local models (Ollama), data does not leave the user's device.</p>
-
-    <h2>5. Pricing and payments</h2>
-    <p>The price of €12.10/year (VAT included) is symbolic and covers only the minimum infrastructure costs (domain and server). It does not imply a guaranteed service level or formal technical support.</p>
-    <p>Payments are processed through Stripe. The author does not store credit card data.</p>
-    <p><strong>Refund policy:</strong> Since a free 5-day trial period is available, no refunds are made once the annual subscription is activated, except in cases of double billing error.</p>
-
-    <h2>6. Modifications</h2>
-    <p>The author reserves the right to modify these terms at any time. Changes will be communicated at datialog.app. Continued use of the software implies acceptance of the new terms.</p>
-
-    <h2>7. Jurisdiction</h2>
-    <p>These terms are governed by Spanish law. For any dispute, the parties submit to the courts and tribunals of Madrid, Spain.</p>
-
-    <h2>8. Contact</h2>
-    <p>For any enquiry: <a href="mailto:licencias@datialog.app" style="color:#1e4db7">licencias@datialog.app</a></p>
+<!-- PRIVACY -->
+<section class="privacy">
+  <div class="privacy-text">
+    <div class="section-label" style="color:var(--accent)" id="priv-label">Privacidad primero</div>
+    <h2><span id="priv-title">Tus datos son tuyos.</span><br><em style="font-style:italic;color:var(--accent)" id="priv-em">Siempre.</em></h2>
+    <p id="priv-p1">A diferencia de ChatGPT o herramientas cloud, Datialog procesa todo en tu ordenador. El modelo de IA corre en local con Ollama — ningún dato tuyo viaja a servidores externos.</p>
+    <p id="priv-p2">Ideal para datos sensibles: financieros, clínicos, empresariales o de investigación con restricciones de privacidad.</p>
   </div>
+  <div class="privacy-stats">
+    <div class="stat-card">
+      <span class="stat-num">0</span>
+      <div class="stat-label" id="stat1l">datos enviados a la nube</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">6+</span>
+      <div class="stat-label" id="stat2l">formatos soportados</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">ES EN FR</span>
+      <div class="stat-label" id="stat3l">idiomas disponibles</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">∞</span>
+      <div class="stat-label" id="stat4l">consultas sin límite</div>
+    </div>
+  </div>
+</section>
 
-</main>
+<!-- FOOTER -->
+<!-- REQUIREMENTS -->
+<section style="padding:80px;background:var(--cream);color:var(--navy)" id="requirements">
+  <div style="max-width:900px;margin:0 auto">
+    <div class="section-label" id="req-label">Requisitos del sistema</div>
+    <h2 class="section-title" id="req-title">¿Funciona en mi ordenador?</h2>
+    <p class="section-sub" id="req-sub">Datialog está diseñado para funcionar en ordenadores estándar. No necesitas un PC gaming ni GPU dedicada para empezar.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px">
+
+      <!-- Minimum -->
+      <div style="background:var(--white);border-radius:14px;padding:32px;border:1px solid rgba(30,77,183,.1)">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+          color:var(--blue);margin-bottom:16px" id="req-min-label">Mínimo (Ollama local)</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+          <li style="display:flex;gap:10px;font-size:14px;align-items:flex-start">
+            <span style="color:var(--blue);font-weight:700;flex-shrink:0">💻</span>
+            <span><strong id="req-os-label">Sistema operativo:</strong> <span id="req-os">Windows 10/11, macOS 12+, Ubuntu 20+</span></span>
+          </li>
+          <li style="display:flex;gap:10px;font-size:14px;align-items:flex-start">
+            <span style="color:var(--blue);font-weight:700;flex-shrink:0">🧠</span>
+            <span><strong id="req-ram-label">RAM:</strong> <span id="req-ram">8 GB mínimo (16 GB recomendado)</span></span>
+          </li>
+          <li style="display:flex;gap:10px;font-size:14px;align-items:flex-start">
+            <span style="color:var(--blue);font-weight:700;flex-shrink:0">💾</span>
+            <span><strong id="req-disk-label">Disco:</strong> <span id="req-disk">10 GB libres (modelo IA ~2-4 GB)</span></span>
+          </li>
+          <li style="display:flex;gap:10px;font-size:14px;align-items:flex-start">
+            <span style="color:var(--blue);font-weight:700;flex-shrink:0">⚡</span>
+            <span><strong id="req-cpu-label">CPU:</strong> <span id="req-cpu">Intel Core i5 / AMD Ryzen 5 o superior</span></span>
+          </li>
+          <li style="display:flex;gap:10px;font-size:14px;align-items:flex-start">
+            <span style="color:var(--blue);font-weight:700;flex-shrink:0">🌐</span>
+            <span><strong id="req-net-label">Internet:</strong> <span id="req-net">Solo para instalación y activación de licencia</span></span>
+          </li>
+        </ul>
+        <div style="margin-top:20px;padding:12px 16px;background:#f0f4ff;border-radius:8px;
+          font-size:12px;color:#4a5568;line-height:1.6" id="req-min-note">
+          ⏱ Con esta configuración los modelos responden en 10-30 segundos. Para mayor velocidad usa Groq (gratuito, online).
+        </div>
+      </div>
+
+      <!-- Recommended -->
+      <div style="background:var(--navy);border-radius:14px;padding:32px;border:1px solid rgba(79,142,247,.2)">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+          color:var(--accent);margin-bottom:16px" id="req-rec-label">Recomendado (máximo rendimiento)</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+          <li style="display:flex;gap:10px;font-size:14px;align-items:flex-start;color:rgba(255,255,255,.85)">
+            <span style="color:var(--accent);font-weight:700;flex-shrink:0">💻</span>
+            <span><strong style="color:var(--white)" id="req-os2-label">Sistema operativo:</strong> <span id="req-os2">Windows 11, macOS 13+</span></span>
+          </li>
+          <li style="display:flex;gap:10px;font-size:14px;align-items:flex-start;color:rgba(255,255,255,.85)">
+            <span style="color:var(--accent);font-weight:700;flex-shrink:0">🧠</span>
+            <span><strong style="color:var(--white)" id="req-ram2-label">RAM:</strong> <span id="req-ram2">16-32 GB</span></span>
+          </li>
+          <li style="display:flex;gap:10px;font-size:14px;align-items:flex-start;color:rgba(255,255,255,.85)">
+            <span style="color:var(--accent);font-weight:700;flex-shrink:0">💾</span>
+            <span><strong style="color:var(--white)" id="req-disk2-label">Disco:</strong> <span id="req-disk2">SSD con 20 GB libres</span></span>
+          </li>
+          <li style="display:flex;gap:10px;font-size:14px;align-items:flex-start;color:rgba(255,255,255,.85)">
+            <span style="color:var(--accent);font-weight:700;flex-shrink:0">⚡</span>
+            <span><strong style="color:var(--white)" id="req-cpu2-label">CPU:</strong> <span id="req-cpu2">Intel Core i7/i9, AMD Ryzen 7/9, Apple M1+</span></span>
+          </li>
+          <li style="display:flex;gap:10px;font-size:14px;align-items:flex-start;color:rgba(255,255,255,.85)">
+            <span style="color:var(--accent);font-weight:700;flex-shrink:0">🎮</span>
+            <span><strong style="color:var(--white)" id="req-gpu-label">GPU (opcional):</strong> <span id="req-gpu">NVIDIA 8GB+ VRAM para máxima velocidad</span></span>
+          </li>
+        </ul>
+        <div style="margin-top:20px;padding:12px 16px;background:rgba(79,142,247,.1);border-radius:8px;
+          font-size:12px;color:rgba(255,255,255,.7);line-height:1.6" id="req-rec-note">
+          ⚡ Con esta configuración los modelos responden en 2-5 segundos en local.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- API alternative note -->
+    <div style="margin-top:32px;padding:20px 28px;background:linear-gradient(135deg,rgba(30,77,183,.08),rgba(79,142,247,.05));
+      border:1px solid rgba(30,77,183,.15);border-radius:12px;display:flex;gap:16px;align-items:flex-start">
+      <span style="font-size:24px;flex-shrink:0">💡</span>
+      <div>
+        <strong style="font-size:14px;color:var(--navy)" id="req-tip-title">¿Ordenador antiguo?</strong>
+        <p style="font-size:13px;color:#4a5568;margin-top:4px;line-height:1.6" id="req-tip-text">
+          Puedes usar Datialog con Groq (gratuito) o las APIs de OpenAI y Anthropic sin instalar Ollama ni descargar modelos. 
+          Solo necesitas una conexión a internet y tu clave de API. Las respuestas son instantáneas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Disclaimer -->
+<section style="padding:40px 80px;background:#060e1a;border-top:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:800px;margin:0 auto;text-align:center">
+    <p style="font-size:12px;color:#4a5568;line-height:1.8" id="disclaimer-text">
+      <strong style="color:#6b7280">Aviso legal:</strong> Datialog es una herramienta de apoyo al análisis de datos. El autor no se responsabiliza de los resultados obtenidos ni de posibles errores generados por los modelos de IA. El usuario es el único responsable de verificar los resultados antes de tomar decisiones importantes.
+      <br><br><strong style="color:#6b7280">Privacidad:</strong> Con modelos locales (Ollama) los datos no salen de tu dispositivo. Al usar APIs externas (OpenAI, Anthropic, Groq) las consultas y el contexto de los datos se envían a sus servidores — el usuario asume esta responsabilidad y debe revisar sus políticas de privacidad antes de usar datos sensibles.
+    </p>
+  </div>
+</section>
+
 <footer>
-  © Iván Pastor · 2026 · Datialog · <a href="https://datialog.app" style="color:#8896b0">datialog.app</a>
+  <div class="footer-logo">Datialog</div>
+  <div class="footer-links">
+    <a href="mailto:hola@datialog.app" id="footer-support">Soporte</a>
+    <a href="/terms.html" id="footer-terms">Términos y Condiciones</a>
+    <a href="/privacy.html" id="footer-privacy">Política de Privacidad</a>
+    <a href="#" id="footer-license">Licencia CC BY-NC 4.0</a>
+  </div>
+  <div class="footer-copy">© Iván Pastor · 2026</div>
 </footer>
+
 <script>
+const T = {
+  es: {
+    nav_features: 'Funcionalidades', nav_how: 'Cómo funciona', nav_pricing: 'Precios',
+    nav_req: 'Requisitos', nav_cta: 'Descargar →',
+    badge: 'IA local · Tus datos nunca salen',
+    h1_line1: 'Habla con', h1_line2: 'tus datos.', h1_em: 'En español.',
+    tagline: 'Datialog convierte tus <strong>CSVs, Excels y bases de datos</strong> en conversaciones. Sin código. Sin cloud. <strong>100% privado en tu ordenador.</strong>',
+    cta_buy: '⬇ Descargar gratis', cta_how: 'Ver cómo funciona',
+    trust1: 'Datos 100% locales', trust2: 'Sin suscripción cloud', trust3: 'Para investigadores y analistas',
+    feat_label: 'Funcionalidades',
+    feat_title: 'Todo lo que necesitas<br>para analizar datos sin código',
+    feat_sub: 'Diseñado para investigadores, analistas financieros y profesores que quieren extraer insights de sus datos sin depender de programadores.',
+    f1t: 'Lenguaje natural', f1p: 'Pregunta en español, inglés o francés. Datialog entiende lo que quieres y genera el código Python automáticamente.',
+    f2t: '100% privado', f2p: 'Tus datos nunca salen de tu ordenador. El modelo de IA corre en local con Ollama. Sin cloud, sin riesgos de GDPR.',
+    f3t: 'EDA automático', f3p: 'Genera informes de análisis exploratorio completos con un clic. Distribuciones, correlaciones, outliers y nulos.',
+    f4t: 'Visualizaciones', f4p: 'Gráficos interactivos con matplotlib, seaborn y plotly. Histogramas, scatter plots, heatmaps y más.',
+    f5t: 'Modo Chat', f5p: 'Pregunta teoría estadística, definiciones o metodología sin necesidad de tener datos cargados.',
+    f6t: 'Checkpoint & Undo', f6p: '¿Te equivocaste en una transformación? Vuelve atrás con un clic. Checkpoints automáticos de tu dataset.',
+    how_label: 'Cómo funciona', how_title: 'De cero a análisis<br>en 4 pasos',
+    s1t: 'Descarga', s1p: 'Descarga gratis el ZIP y ejecuta instalar.bat. Python, Ollama y el modelo de IA se instalan solos.',
+    s2t: 'Prueba', s2p: 'Datialog arranca sin licencia. Pruébalo con tus datos durante 5 días gratis.',
+    s3t: 'Analiza', s3p: 'Arrastra tu CSV, Excel, Stata o SAS. Pregunta en lenguaje natural y obtén resultados.',
+    s4t: 'Activa', s4p: 'Si te gusta, activa tu licencia desde la propia app o desde datialog.app. Solo 12.10€/año.',
+    price_label: 'Precios', price_title: 'Simple. Transparente.',
+    price_sub: 'Prueba 1 día gratis sin compromiso. El precio de 12.10€/año cubre únicamente los costes mínimos de dominio y servidor — no es un precio de mercado, es simbólico.',
+    trial_label: 'Prueba gratuita', trial_title: '5 días gratis, sin tarjeta',
+    trial_sub: 'Acceso completo durante 5 días. Solo necesitas tu email. Correo universitario: 30 días gratis.',
+    trial_cta: 'Empezar trial →',
+    p1name: 'Trial', p1price: 'Gratis', p1period: '5 días · con email',
+    p1f1: 'Acceso completo 5 días', p1f2: 'Modelos locales (Ollama)', p1f3: 'Todos los formatos',
+    p1f4: 'Sin tarjeta de crédito', p1f5: 'Email de activación inmediato', p1btn: 'Probar gratis',
+    p2name: 'Suscripción', p2price: '12.10', p2period: 'año · IVA incluido · se renueva cada año',
+    p2f1: '1 dispositivo', p2f2: 'Ollama (local) + Groq + OpenAI + Claude*',
+    p2f3: 'EDA automático', p2f4: 'Consola Python integrada',
+    p2f5: 'Actualizaciones durante 1 año', p2f6: 'Soporte por email', p2btn: 'Suscribirse →',
+    api_disclaimer: '* El uso de APIs externas (OpenAI, Anthropic, Groq) requiere una clave de API propia de cada proveedor. Con estas APIs, los datos viajan a sus servidores. Para máxima privacidad usa Ollama en local.',
+    priv_label: 'Privacidad primero', priv_title: 'Tus datos son tuyos.', priv_em: 'Siempre.',
+    priv_p1: 'A diferencia de ChatGPT o herramientas cloud, Datialog procesa todo en tu ordenador. El modelo de IA corre en local con Ollama — ningún dato tuyo viaja a servidores externos.',
+    priv_p2: 'Ideal para datos sensibles: financieros, clínicos, empresariales o de investigación con restricciones de privacidad.',
+    stat1l: 'datos enviados a la nube', stat2l: 'formatos soportados', stat3l: 'idiomas disponibles', stat4l: 'consultas sin límite',
+    req_label: 'Requisitos del sistema', req_title: '¿Funciona en mi ordenador?',
+    req_sub: 'Datialog está diseñado para funcionar en ordenadores estándar. No necesitas un PC gaming ni GPU dedicada para empezar.',
+    req_min_label: 'Mínimo (Ollama local)', req_rec_label: 'Recomendado (máximo rendimiento)',
+    req_os_label: 'Sistema operativo:', req_os: 'Windows 10/11, macOS 12+, Ubuntu 20+',
+    req_ram_label: 'RAM:', req_ram: '8 GB mínimo (16 GB recomendado)',
+    req_disk_label: 'Disco:', req_disk: '10 GB libres (modelo IA ~2-4 GB)',
+    req_cpu_label: 'CPU:', req_cpu: 'Intel Core i5 / AMD Ryzen 5 o superior',
+    req_net_label: 'Internet:', req_net: 'Solo para instalación y activación de licencia',
+    req_min_note: '⏱ Con esta configuración los modelos responden en 10-30 segundos. Para mayor velocidad usa Groq (gratuito, online).',
+    req_os2_label: 'Sistema operativo:', req_os2: 'Windows 11, macOS 13+',
+    req_ram2_label: 'RAM:', req_ram2: '16-32 GB',
+    req_disk2_label: 'Disco:', req_disk2: 'SSD con 20 GB libres',
+    req_cpu2_label: 'CPU:', req_cpu2: 'Intel Core i7/i9, AMD Ryzen 7/9, Apple M1+',
+    req_gpu_label: 'GPU (opcional):', req_gpu: 'NVIDIA 8GB+ VRAM para máxima velocidad',
+    req_rec_note: '⚡ Con esta configuración los modelos responden en 2-5 segundos en local.',
+    req_tip_title: '¿Ordenador antiguo?',
+    req_tip_text: 'Puedes usar Datialog con Groq (gratuito) o las APIs de OpenAI y Anthropic sin instalar Ollama ni descargar modelos. Solo necesitas una conexión a internet y tu clave de API. Las respuestas son instantáneas.',
+    disclaimer_text: '<strong style="color:#6b7280">Aviso legal:</strong> Datialog es una herramienta de apoyo al análisis de datos. El autor no se responsabiliza de los resultados obtenidos, decisiones tomadas a partir de los mismos, ni de posibles errores en los análisis generados por los modelos de inteligencia artificial. El usuario es el único responsable del uso que haga de la herramienta y de la verificación de los resultados. Los modelos de IA pueden cometer errores — siempre contrasta los resultados antes de tomar decisiones importantes. <strong style="color:#6b7280">Privacidad:</strong> Cuando se utilizan modelos locales (Ollama, LM Studio) los datos no salen del dispositivo del usuario. Sin embargo, al usar APIs externas como OpenAI, Anthropic o Groq, las consultas y el contexto de los datos se envían a los servidores de dichos proveedores, perdiendo el carácter de privacidad local. El usuario asume la responsabilidad de esta elección y debe revisar las políticas de privacidad de cada proveedor antes de usar sus APIs con datos sensibles.',
+    videos_label: 'Demo', videos_title: 'Míralo en acción',
+    videos_sub: 'Vídeos con subtítulos en español e inglés',
+    video1_label: '📊 DEMO — Análisis de datos',
+    video1_desc: 'Carga un dataset financiero y analízalo en lenguaje natural.',
+    video2_label: '⚙️ INSTALACIÓN — Guía paso a paso',
+    video2_desc: 'Desde cero hasta Datialog funcionando en tu PC en minutos.',
+    terms_link: 'Términos y Condiciones',
+    privacy_link: 'Política de Privacidad',
+    footer_support: 'Soporte', footer_docs: 'Documentación', footer_license: 'Licencia CC BY-NC 4.0',
+    chat_label: 'Datialog · Natural AI Data Explorer',
+    chat_q1: '¿Cuál es el ROA medio por sector?', chat_q2: 'Ahora filtra solo las empresas exportadoras',
+    chat_placeholder: 'Escribe una pregunta sobre tus datos…', chat_code_label: 'Datialog · Código generado',
+  },
+  en: {
+    nav_features: 'Features', nav_how: 'How it works', nav_pricing: 'Pricing',
+    nav_req: 'Requirements', nav_cta: 'Download →',
+    badge: 'Local AI · Your data never leaves',
+    h1_line1: 'Talk to', h1_line2: 'your data.', h1_em: 'In plain English.',
+    tagline: 'Datialog turns your <strong>CSVs, Excel files and databases</strong> into conversations. No code. No cloud. <strong>100% private on your computer.</strong>',
+    cta_buy: '⬇ Download free', cta_how: 'See how it works',
+    trust1: '100% local data', trust2: 'No cloud subscription', trust3: 'For researchers & analysts',
+    feat_label: 'Features',
+    feat_title: 'Everything you need<br>to analyze data without code',
+    feat_sub: 'Designed for researchers, financial analysts and professors who want to extract insights from their data without depending on developers.',
+    f1t: 'Natural language', f1p: 'Ask in Spanish, English or French. Datialog understands what you want and generates Python code automatically.',
+    f2t: '100% private', f2p: 'Your data never leaves your computer. The AI model runs locally with Ollama. No cloud, no GDPR risks.',
+    f3t: 'Automatic EDA', f3p: 'Generate complete exploratory analysis reports with one click. Distributions, correlations, outliers and nulls.',
+    f4t: 'Visualizations', f4p: 'Interactive charts with matplotlib, seaborn and plotly. Histograms, scatter plots, heatmaps and more.',
+    f5t: 'Chat mode', f5p: 'Ask statistical theory, definitions or methodology without needing data loaded.',
+    f6t: 'Checkpoint & Undo', f6p: 'Made a mistake in a transformation? Go back with one click. Automatic checkpoints of your dataset.',
+    how_label: 'How it works', how_title: 'From zero to analysis<br>in 4 steps',
+    s1t: 'Download', s1p: 'Download the ZIP for free and run instalar.bat. Python, Ollama and the AI model install automatically.',
+    s2t: 'Try it', s2p: 'Datialog starts without a license. Try it with your data for 5 free days.',
+    s3t: 'Analyze', s3p: 'Drag your CSV, Excel, Stata or SAS. Ask in plain language and get results.',
+    s4t: 'Activate', s4p: 'If you like it, activate your license from the app or from datialog.app. Just €12.10/year.',
+    price_label: 'Pricing', price_title: 'Simple. Transparent.',
+    price_sub: 'Download free, install and try it. Once you see it works on your PC, activate your license. The €12.10/year price only covers the minimum costs of domain and server.',
+    trial_label: 'Free trial', trial_title: '5 days free, no credit card',
+    trial_sub: 'Full access for 5 days. Just your email. University email: 30 days free.',
+    trial_cta: 'Start trial →',
+    p1name: 'Trial', p1price: 'Free', p1period: '5 days · email only',
+    p1f1: 'Full access for 5 days', p1f2: 'Local models (Ollama)', p1f3: 'All formats',
+    p1f4: 'No credit card', p1f5: 'Instant activation email', p1btn: 'Try for free',
+    p2name: 'Subscription', p2price: '12.10', p2period: 'year · VAT incl. · renewed annually',
+    p2f1: '1 device', p2f2: 'Ollama (local) + Groq + OpenAI + Claude*',
+    p2f3: 'Automatic EDA', p2f4: 'Integrated Python console',
+    p2f5: '1 year of updates', p2f6: 'Email support', p2btn: 'Subscribe →',
+    api_disclaimer: '* Using external APIs (OpenAI, Anthropic, Groq) requires your own API key from each provider. With these APIs, your query data travels to their servers. For maximum privacy use Ollama locally.',
+    priv_label: 'Privacy first', priv_title: 'Your data is yours.', priv_em: 'Always.',
+    priv_p1: 'Unlike ChatGPT or cloud tools, Datialog processes everything on your computer. The AI model runs locally with Ollama — none of your data travels to external servers.',
+    priv_p2: 'Ideal for sensitive data: financial, clinical, business or research data with privacy restrictions.',
+    stat1l: 'data sent to cloud', stat2l: 'supported formats', stat3l: 'available languages', stat4l: 'unlimited queries',
+    req_label: 'System requirements', req_title: 'Will it run on my computer?',
+    req_sub: 'Datialog is designed to run on standard computers. You do not need a gaming PC or dedicated GPU to get started.',
+    req_min_label: 'Minimum (local Ollama)', req_rec_label: 'Recommended (maximum performance)',
+    req_os_label: 'Operating system:', req_os: 'Windows 10/11, macOS 12+, Ubuntu 20+',
+    req_ram_label: 'RAM:', req_ram: '8 GB minimum (16 GB recommended)',
+    req_disk_label: 'Storage:', req_disk: '10 GB free (AI model ~2-4 GB)',
+    req_cpu_label: 'CPU:', req_cpu: 'Intel Core i5 / AMD Ryzen 5 or better',
+    req_net_label: 'Internet:', req_net: 'Only for installation and license activation',
+    req_min_note: '⏱ With this setup models respond in 10-30 seconds. For faster responses use Groq (free, online).',
+    req_os2_label: 'Operating system:', req_os2: 'Windows 11, macOS 13+',
+    req_ram2_label: 'RAM:', req_ram2: '16-32 GB',
+    req_disk2_label: 'Storage:', req_disk2: 'SSD with 20 GB free',
+    req_cpu2_label: 'CPU:', req_cpu2: 'Intel Core i7/i9, AMD Ryzen 7/9, Apple M1+',
+    req_gpu_label: 'GPU (optional):', req_gpu: 'NVIDIA 8GB+ VRAM for maximum speed',
+    req_rec_note: '⚡ With this setup local models respond in 2-5 seconds.',
+    req_tip_title: 'Older computer?',
+    req_tip_text: 'You can use Datialog with Groq (free) or OpenAI and Anthropic APIs without installing Ollama or downloading models. You just need an internet connection and your API key. Responses are instant.',
+    disclaimer_text: '<strong style="color:#6b7280">Legal notice:</strong> Datialog is a data analysis support tool. The author is not responsible for the results obtained, decisions made based on them, or possible errors in analyses generated by artificial intelligence models. The user is solely responsible for their use of the tool and for verifying results. AI models can make mistakes — always verify results before making important decisions. <strong style="color:#6b7280">Privacy:</strong> When using local models (Ollama, LM Studio) data does not leave the user device. However, when using external APIs such as OpenAI, Anthropic or Groq, queries and data context are sent to those providers servers, losing the local privacy guarantee. The user assumes responsibility for this choice and should review each provider privacy policy before using their APIs with sensitive data.',
+    videos_label: 'Demo', videos_title: 'See it in action',
+    videos_sub: 'Videos with Spanish and English subtitles',
+    video1_label: '📊 DEMO — Data analysis',
+    video1_desc: 'Load a financial dataset and analyze it in natural language.',
+    video2_label: '⚙️ INSTALLATION — Step by step guide',
+    video2_desc: 'From scratch to Datialog running on your PC in minutes.',
+    terms_link: 'Terms & Conditions',
+    privacy_link: 'Privacy Policy',
+    footer_support: 'Support', footer_docs: 'Documentation', footer_license: 'CC BY-NC 4.0 License',
+    chat_label: 'Datialog · Natural AI Data Explorer',
+    chat_q1: 'What is the average ROA by sector?', chat_q2: 'Now filter only exporting companies',
+    chat_placeholder: 'Ask a question about your data…', chat_code_label: 'Datialog · Generated code',
+  },
+
+};
+
+let lang = 'es';
+
 function setLang(l) {
-  document.querySelectorAll('.doc').forEach(d => d.classList.remove('active'));
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('doc-' + l).classList.add('active');
-  event.target.classList.add('active');
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === l.toUpperCase()));
+  applyTranslations();
+}
+
+async function requestStudent() {
+  const email = document.getElementById('student-email').value.trim();
+  const msg = document.getElementById('student-msg');
+  const btn = document.getElementById('student-btn');
+  if (!email || !email.includes('@')) { msg.style.color='#fca5a5'; msg.textContent='⚠ Introduce un email válido'; return; }
+  btn.textContent = '⏳ Enviando…'; btn.disabled = true;
+  try {
+    const resp = await fetch('https://datialog-license-server-production.up.railway.app/v1/student', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email})
+    });
+    const d = await resp.json();
+    if (d.success) {
+      msg.style.color = '#86efac';
+      msg.textContent = '✓ ¡Email enviado! Revisa tu bandeja de entrada.';
+      btn.textContent = '✓ Enviado';
+    } else {
+      msg.style.color = '#fca5a5';
+      msg.textContent = d.message || 'Error';
+      btn.textContent = 'Solicitar licencia →'; btn.disabled = false;
+    }
+  } catch(e) { msg.style.color='#fca5a5'; msg.textContent='Error de conexión'; btn.textContent='Solicitar licencia →'; btn.disabled=false; }
+}
+
+async function requestTrial() {
+  const email = document.getElementById('trial-email').value.trim();
+  const msg = document.getElementById('trial-msg');
+  const btn = document.getElementById('trial-btn');
+  if (!email || !email.includes('@')) {
+    msg.style.color = '#fca5a5';
+    msg.textContent = '⚠ Introduce un email válido';
+    return;
+  }
+  btn.textContent = '⏳ Enviando…';
+  btn.disabled = true;
+  try {
+    const resp = await fetch('https://datialog-license-server-production.up.railway.app/v1/trial', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: email})
+    });
+    const d = await resp.json();
+    if (d.success) {
+      msg.style.color = '#86efac';
+      msg.textContent = '✓ ¡Email enviado! Revisa tu bandeja de entrada.';
+      btn.textContent = '✓ Enviado';
+    } else {
+      msg.style.color = '#fca5a5';
+      msg.textContent = d.message || 'Error al procesar la solicitud';
+      btn.textContent = 'Empezar trial →';
+      btn.disabled = false;
+    }
+  } catch(e) {
+    msg.style.color = '#fca5a5';
+    msg.textContent = 'Error de conexión. Inténtalo de nuevo.';
+    btn.textContent = 'Empezar trial →';
+    btn.disabled = false;
+  }
+}
+
+function applyTranslations() {
+  const t = T[lang];
+  // Nav
+  document.querySelectorAll('[data-i]').forEach(el => {
+    const k = el.getAttribute('data-i');
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  // Hero
+  const _el_badge = document.getElementById('badge'); if(_el_badge) _el_badge.textContent = t.badge || '';
+  const _el_h1_line1 = document.getElementById('h1-line1'); if(_el_h1_line1) _el_h1_line1.textContent = t.h1_line1 || '';
+  const _el_h1_line2 = document.getElementById('h1-line2'); if(_el_h1_line2) _el_h1_line2.textContent = t.h1_line2 || '';
+  const _el_h1_em = document.getElementById('h1-em'); if(_el_h1_em) _el_h1_em.textContent = t.h1_em || '';
+  const _taglineEl = document.getElementById('tagline'); if(_taglineEl) _taglineEl.innerHTML = t.tagline || '';
+  const _el_cta_buy = document.getElementById('cta-buy'); if(_el_cta_buy) _el_cta_buy.textContent = t.cta_buy || '';
+  const _el_cta_how = document.getElementById('cta-how'); if(_el_cta_how) _el_cta_how.textContent = t.cta_how || '';
+  const _el_trust1 = document.getElementById('trust1'); if(_el_trust1) _el_trust1.textContent = t.trust1 || '';
+  const _el_trust2 = document.getElementById('trust2'); if(_el_trust2) _el_trust2.textContent = t.trust2 || '';
+  const _el_trust3 = document.getElementById('trust3'); if(_el_trust3) _el_trust3.textContent = t.trust3 || '';
+  // Features
+  const _el_feat_label = document.getElementById('feat-label'); if(_el_feat_label) _el_feat_label.textContent = t.feat_label || '';
+  const _el2_feat_title = document.getElementById('feat-title'); if(_el2_feat_title) _el2_feat_title.innerHTML = t.feat_title || '';
+  const _el_feat_sub = document.getElementById('feat-sub'); if(_el_feat_sub) _el_feat_sub.textContent = t.feat_sub || '';
+  for (let i=1;i<=6;i++) {
+    const ft = document.getElementById('f'+i+'t'); if(ft) ft.textContent = t['f'+i+'t'] || '';
+    const fp = document.getElementById('f'+i+'p'); if(fp) fp.textContent = t['f'+i+'p'] || '';
+  }
+  // How
+  const _el_how_label = document.getElementById('how-label'); if(_el_how_label) _el_how_label.textContent = t.how_label || '';
+  const _el2_how_title = document.getElementById('how-title'); if(_el2_how_title) _el2_how_title.innerHTML = t.how_title || '';
+  for (let i=1;i<=4;i++) {
+    const st = document.getElementById('s'+i+'t'); if(st) st.textContent = t['s'+i+'t'] || '';
+    const sp = document.getElementById('s'+i+'p'); if(sp) sp.textContent = t['s'+i+'p'] || '';
+  }
+  // Pricing
+  const _el_price_label = document.getElementById('price-label'); if(_el_price_label) _el_price_label.textContent = t.price_label || '';
+  const _el_price_title = document.getElementById('price-title'); if(_el_price_title) _el_price_title.textContent = t.price_title || '';
+  const _el_price_sub = document.getElementById('price-sub'); if(_el_price_sub) _el_price_sub.textContent = t.price_sub || '';
+  // Trial banner
+  if (t.trial_label) {
+    const tl = document.getElementById('trial-label'); if(tl) tl.textContent = t.trial_label;
+    const tt = document.getElementById('trial-title'); if(tt) tt.textContent = t.trial_title;
+    const ts = document.getElementById('trial-sub'); if(ts) ts.textContent = t.trial_sub;
+    const tb = document.getElementById('trial-btn'); if(tb) tb.textContent = t.trial_cta;
+  }
+  if (t.api_disclaimer) {
+    const ad = document.getElementById('api-disclaimer'); if(ad) ad.textContent = t.api_disclaimer;
+  }
+  for (let i=1;i<=2;i++) {
+    const nameEl = document.getElementById('p'+i+'name'); if(nameEl) nameEl.textContent = t['p'+i+'name'] || '';
+    const priceEl = document.getElementById('p'+i+'price');
+    if (priceEl) {
+      const pv = t['p'+i+'price'] || '';
+      if (pv === 'Gratis' || pv === 'Free' || pv === 'Gratuit') {
+        priceEl.innerHTML = pv;
+      } else {
+        priceEl.innerHTML = '<sup>€</sup>'+pv;
+      }
+    }
+    const periodEl = document.getElementById('p'+i+'period'); if(periodEl) periodEl.textContent = t['p'+i+'period'] || '';
+    const btnEl = document.getElementById('p'+i+'btn'); if(btnEl) btnEl.textContent = t['p'+i+'btn'] || '';
+    const maxf = i===1?5:6;
+    for (let j=1;j<=maxf;j++) {
+      const el = document.getElementById('p'+i+'f'+j);
+      if (el && t['p'+i+'f'+j]) el.textContent = t['p'+i+'f'+j];
+    }
+  }
+  // Privacy
+  const _el_priv_label = document.getElementById('priv-label'); if(_el_priv_label) _el_priv_label.textContent = t.priv_label || '';
+  const _el_priv_title = document.getElementById('priv-title'); if(_el_priv_title) _el_priv_title.textContent = t.priv_title || '';
+  const _el_priv_em = document.getElementById('priv-em'); if(_el_priv_em) _el_priv_em.textContent = t.priv_em || '';
+  const _el_priv_p1 = document.getElementById('priv-p1'); if(_el_priv_p1) _el_priv_p1.textContent = t.priv_p1 || '';
+  const _el_priv_p2 = document.getElementById('priv-p2'); if(_el_priv_p2) _el_priv_p2.textContent = t.priv_p2 || '';
+  const _el_stat1l = document.getElementById('stat1l'); if(_el_stat1l) _el_stat1l.textContent = t.stat1l || '';
+  const _el_stat2l = document.getElementById('stat2l'); if(_el_stat2l) _el_stat2l.textContent = t.stat2l || '';
+  const _el_stat3l = document.getElementById('stat3l'); if(_el_stat3l) _el_stat3l.textContent = t.stat3l || '';
+  const _el_stat4l = document.getElementById('stat4l'); if(_el_stat4l) _el_stat4l.textContent = t.stat4l || '';
+  // Footer
+  // Requirements
+  // Videos
+  var _vl = document.getElementById('videos-label'); if(_vl) _vl.textContent = t.videos_label || '';
+  var _vt = document.getElementById('videos-title'); if(_vt) _vt.textContent = t.videos_title || '';
+  var _vs = document.getElementById('videos-sub'); if(_vs) _vs.textContent = t.videos_sub || '';
+  var _v1l = document.getElementById('video1-label'); if(_v1l) _v1l.textContent = t.video1_label || '';
+  var _v1d = document.getElementById('video1-desc'); if(_v1d) _v1d.textContent = t.video1_desc || '';
+  var _v2l = document.getElementById('video2-label'); if(_v2l) _v2l.textContent = t.video2_label || '';
+  var _v2d = document.getElementById('video2-desc'); if(_v2d) _v2d.textContent = t.video2_desc || '';
+  var reqIds = ['req-label','req-title','req-sub','req-min-label','req-rec-label',
+    'req-os-label','req-os','req-ram-label','req-ram','req-disk-label','req-disk',
+    'req-cpu-label','req-cpu','req-net-label','req-net','req-min-note',
+    'req-os2-label','req-os2','req-ram2-label','req-ram2','req-disk2-label','req-disk2',
+    'req-cpu2-label','req-cpu2','req-gpu-label','req-gpu','req-rec-note',
+    'req-tip-title','req-tip-text'];
+  reqIds.forEach(function(id) {
+    var key = id.replace(/-/g,'_').replace('req_','req-').replace(/-/g,'_');
+    var k2 = id.replace(/-/g,'_');
+    var el = document.getElementById(id);
+    if (el && t[k2]) el.textContent = t[k2];
+  });
+  const _disc = document.getElementById('disclaimer-text'); if(_disc && t.disclaimer_text) _disc.innerHTML = t.disclaimer_text;
+  const _el_footer_support = document.getElementById('footer-support'); if(_el_footer_support) _el_footer_support.textContent = t.footer_support || '';
+  const _el_footer_terms = document.getElementById('footer-terms'); if(_el_footer_terms) _el_footer_terms.textContent = t.terms_link || '';
+  const _el_footer_privacy = document.getElementById('footer-privacy'); if(_el_footer_privacy) _el_footer_privacy.textContent = t.privacy_link || '';
+  const _el_footer_docs = document.getElementById('footer-docs'); if(_el_footer_docs) _el_footer_docs.textContent = t.footer_docs || '';
+  const _el_footer_license = document.getElementById('footer-license'); if(_el_footer_license) _el_footer_license.textContent = t.footer_license || '';
+  // Chat mockup
+  const _el_chat_label = document.getElementById('chat-label'); if(_el_chat_label) _el_chat_label.textContent = t.chat_label || '';
+  const _el_chat_q1 = document.getElementById('chat-q1'); if(_el_chat_q1) _el_chat_q1.textContent = t.chat_q1 || '';
+  const _el_chat_q2 = document.getElementById('chat-q2'); if(_el_chat_q2) _el_chat_q2.textContent = t.chat_q2 || '';
+  const _el_chat_placeholder = document.getElementById('chat-placeholder'); if(_el_chat_placeholder) _el_chat_placeholder.textContent = t.chat_placeholder || '';
+  const _el_chat_code_label = document.getElementById('chat-code-label'); if(_el_chat_code_label) _el_chat_code_label.textContent = t.chat_code_label || '';
 }
 </script>
 </body>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datialog — Panel Admin</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #0a1628; color: #e2e8f0; min-height: 100vh; }
+nav { background: #0f2044; padding: 16px 32px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.logo { font-size: 20px; font-style: italic; color: #4f8ef7; font-family: Georgia, serif; }
+.badge { font-size: 10px; background: rgba(201,168,76,.15); color: #c9a84c; border: 1px solid rgba(201,168,76,.3); border-radius: 4px; padding: 2px 8px; letter-spacing: 1px; }
+main { padding: 32px; max-width: 1200px; margin: 0 auto; }
+
+/* Login */
+#login-box { background: #0f2044; border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 40px; max-width: 400px; margin: 80px auto; text-align: center; }
+#login-box h2 { margin-bottom: 24px; font-size: 20px; }
+#login-box input { width: 100%; padding: 10px 14px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 8px; color: #fff; font-family: monospace; font-size: 14px; margin-bottom: 16px; }
+#login-box button { width: 100%; padding: 11px; background: #1e4db7; color: #fff; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; }
+#login-box button:hover { background: #2f65d4; }
+
+/* Stats */
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+.stat-card { background: #0f2044; border: 1px solid rgba(255,255,255,.08); border-radius: 10px; padding: 20px; text-align: center; }
+.stat-num { font-size: 32px; font-weight: 700; color: #4f8ef7; display: block; margin-bottom: 4px; }
+.stat-label { font-size: 12px; color: #8896b0; }
+
+/* Controls */
+.controls { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
+.controls input { padding: 8px 14px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 8px; color: #fff; font-size: 13px; }
+.btn { padding: 8px 18px; border: none; border-radius: 8px; font-size: 13px; cursor: pointer; transition: all .15s; }
+.btn-blue { background: #1e4db7; color: #fff; }
+.btn-blue:hover { background: #2f65d4; }
+.btn-green { background: #059669; color: #fff; }
+.btn-green:hover { background: #10b981; }
+.btn-red { background: #dc2626; color: #fff; }
+.btn-red:hover { background: #ef4444; }
+.btn-yellow { background: #d97706; color: #fff; }
+.btn-yellow:hover { background: #f59e0b; }
+.btn-sm { padding: 4px 10px; font-size: 11px; border-radius: 5px; }
+
+/* Table */
+.table-wrap { background: #0f2044; border: 1px solid rgba(255,255,255,.08); border-radius: 10px; overflow: hidden; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { padding: 12px 16px; text-align: left; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #8896b0; border-bottom: 1px solid rgba(255,255,255,.08); background: rgba(0,0,0,.2); }
+td { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.05); }
+tr:hover td { background: rgba(255,255,255,.03); }
+tr:last-child td { border-bottom: none; }
+.plan-badge { font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.plan-pro { background: rgba(79,142,247,.2); color: #4f8ef7; }
+.plan-trial { background: rgba(201,168,76,.15); color: #c9a84c; }
+.plan-student { background: rgba(16,185,129,.15); color: #10b981; }
+.active-yes { color: #10b981; }
+.active-no { color: #6b7280; }
+.days-ok { color: #10b981; }
+.days-warn { color: #f59e0b; }
+.days-exp { color: #ef4444; }
+
+/* Modal */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 100; align-items: center; justify-content: center; }
+.modal-overlay.open { display: flex; }
+.modal { background: #0f2044; border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 32px; width: 400px; }
+.modal h3 { margin-bottom: 20px; font-size: 16px; }
+.modal input { width: 100%; padding: 9px 12px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 7px; color: #fff; font-size: 14px; margin-bottom: 14px; }
+.modal-btns { display: flex; gap: 10px; }
+.modal-btns button { flex: 1; }
+.msg { padding: 8px 14px; border-radius: 7px; font-size: 13px; margin-bottom: 16px; display: none; }
+.msg.ok { background: rgba(16,185,129,.15); color: #10b981; border: 1px solid rgba(16,185,129,.3); display: block; }
+.msg.err { background: rgba(239,68,68,.15); color: #ef4444; border: 1px solid rgba(239,68,68,.3); display: block; }
+
+/* Generate license */
+.gen-box { background: #0f2044; border: 1px solid rgba(255,255,255,.08); border-radius: 10px; padding: 24px; margin-bottom: 24px; }
+.gen-box h3 { font-size: 14px; color: #8896b0; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+.gen-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+.gen-row input, .gen-row select { padding: 8px 12px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 7px; color: #fff; font-size: 13px; }
+.gen-row select option { background: #0f2044; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Datialog</div>
+  <div class="badge">ADMIN</div>
+  <div style="margin-left:auto;font-size:12px;color:#8896b0" id="nav-server"></div>
+  <button class="btn btn-red btn-sm" onclick="logout()">Salir</button>
+</nav>
+
+<!-- Login -->
+<div id="login-box">
+  <h2>🔐 Panel de administración</h2>
+  <input type="password" id="secret-inp" placeholder="Admin secret" onkeydown="if(event.key==='Enter')doLogin()">
+  <button onclick="doLogin()">Entrar</button>
+  <p id="login-msg" style="color:#ef4444;font-size:12px;margin-top:12px"></p>
+</div>
+
+<!-- Main panel -->
+<main id="main-panel" style="display:none">
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card"><span class="stat-num" id="stat-total">-</span><div class="stat-label">Total licencias</div></div>
+    <div class="stat-card"><span class="stat-num" id="stat-active">-</span><div class="stat-label">Activadas</div></div>
+    <div class="stat-card"><span class="stat-num" id="stat-expiring">-</span><div class="stat-label">Expiran en 7 días</div></div>
+    <div class="stat-card"><span class="stat-num" id="stat-expired">-</span><div class="stat-label">Expiradas</div></div>
+  </div>
+
+  <!-- Generate license -->
+  <div class="gen-box">
+    <h3>➕ Generar licencia</h3>
+    <div class="gen-row">
+      <input type="email" id="gen-email" placeholder="email@ejemplo.com" style="min-width:220px">
+      <select id="gen-plan">
+        <option value="pro">Pro</option>
+        <option value="trial">Trial</option>
+        <option value="student">Student</option>
+        <option value="custom">Custom</option>
+      </select>
+      <input type="number" id="gen-days" value="365" min="1" max="3650" style="width:90px" placeholder="Días">
+      <button class="btn btn-green" onclick="generateLicense()">Generar y enviar email</button>
+    </div>
+    <div id="gen-msg" class="msg" style="margin-top:12px"></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <input type="text" id="search-inp" placeholder="Buscar por email o clave..." oninput="filterTable()" style="min-width:240px">
+    <select id="filter-plan" onchange="filterTable()" style="padding:8px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:8px;color:#fff">
+      <option value="">Todos los planes</option>
+      <option value="pro">Pro</option>
+      <option value="trial">Trial</option>
+      <option value="student">Student</option>
+    </select>
+    <button class="btn btn-blue" onclick="loadLicenses()">🔄 Actualizar</button>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Clave</th>
+          <th>Plan</th>
+          <th>Creada</th>
+          <th>Expira</th>
+          <th>Días</th>
+          <th>Activada</th>
+          <th>Plataforma</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="licenses-tbody"></tbody>
+    </table>
+  </div>
+</main>
+
+<!-- Extend modal -->
+<div class="modal-overlay" id="extend-modal">
+  <div class="modal">
+    <h3>📅 Ampliar licencia</h3>
+    <p style="font-size:13px;color:#8896b0;margin-bottom:16px" id="extend-info"></p>
+    <input type="number" id="extend-days" value="365" min="1" placeholder="Días a añadir">
+    <div id="extend-msg" class="msg"></div>
+    <div class="modal-btns">
+      <button class="btn btn-blue" onclick="doExtend()">Ampliar</button>
+      <button class="btn" style="background:rgba(255,255,255,.1)" onclick="closeModal('extend-modal')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const SERVER = 'https://datialog-license-server-production.up.railway.app';
+let SECRET = '';
+let allLicenses = [];
+let currentKey = '';
+
+function doLogin() {
+  const s = document.getElementById('secret-inp').value.trim();
+  if (!s) return;
+  SECRET = s;
+  loadLicenses();
+}
+
+function logout() {
+  SECRET = '';
+  document.getElementById('login-box').style.display = 'block';
+  document.getElementById('main-panel').style.display = 'none';
+}
+
+async function loadLicenses() {
+  try {
+    const r = await fetch(`${SERVER}/v1/admin/licenses?admin_secret=${encodeURIComponent(SECRET)}`);
+    if (r.status === 403) {
+      document.getElementById('login-msg').textContent = 'Clave incorrecta';
+      return;
+    }
+    const d = await r.json();
+    allLicenses = d.licenses || [];
+    document.getElementById('login-box').style.display = 'none';
+    document.getElementById('main-panel').style.display = 'block';
+    document.getElementById('nav-server').textContent = SERVER;
+    updateStats();
+    renderTable(allLicenses);
+  } catch(e) {
+    document.getElementById('login-msg').textContent = 'Error de conexión';
+  }
+}
+
+function updateStats() {
+  const total = allLicenses.length;
+  const active = allLicenses.filter(l => l.activated).length;
+  const expiring = allLicenses.filter(l => l.days_left >= 0 && l.days_left <= 7).length;
+  const expired = allLicenses.filter(l => l.days_left < 0).length;
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-active').textContent = active;
+  document.getElementById('stat-expiring').textContent = expiring;
+  document.getElementById('stat-expired').textContent = expired;
+}
+
+function renderTable(licenses) {
+  const tbody = document.getElementById('licenses-tbody');
+  if (!licenses.length) {
+    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:#8896b0;padding:40px">No hay licencias</td></tr>';
+    return;
+  }
+  tbody.innerHTML = licenses.map(l => {
+    const planCls = l.plan === 'pro' ? 'plan-pro' : l.plan === 'student' ? 'plan-student' : 'plan-trial';
+    const daysCls = l.days_left < 0 ? 'days-exp' : l.days_left <= 7 ? 'days-warn' : 'days-ok';
+    const daysText = l.days_left < 0 ? `Expirada (${Math.abs(l.days_left)}d)` : `${l.days_left}d`;
+    return `<tr>
+      <td>${l.email}</td>
+      <td style="font-family:monospace;font-size:11px">${l.key}</td>
+      <td><span class="plan-badge ${planCls}">${l.plan}</span></td>
+      <td>${l.created_at}</td>
+      <td>${l.expires}</td>
+      <td class="${daysCls}">${daysText}</td>
+      <td class="${l.activated ? 'active-yes' : 'active-no'}">${l.activated ? '✓ ' + l.last_seen : '—'}</td>
+      <td style="font-size:11px;color:#8896b0">${l.platform || '—'}</td>
+      <td>
+        <button class="btn btn-yellow btn-sm" onclick="openExtend('${l.key}','${l.email}','${l.expires}')">+Días</button>
+        <button class="btn btn-red btn-sm" onclick="revokeLicense('${l.key}','${l.email}')" style="margin-left:4px">Revocar</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function filterTable() {
+  const q = document.getElementById('search-inp').value.toLowerCase();
+  const plan = document.getElementById('filter-plan').value;
+  const filtered = allLicenses.filter(l =>
+    (!q || l.email.includes(q) || l.key.toLowerCase().includes(q)) &&
+    (!plan || l.plan === plan)
+  );
+  renderTable(filtered);
+}
+
+function openExtend(key, email, expires) {
+  currentKey = key;
+  document.getElementById('extend-info').textContent = `${email} · Expira: ${expires}`;
+  document.getElementById('extend-msg').className = 'msg';
+  document.getElementById('extend-modal').classList.add('open');
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+async function doExtend() {
+  const days = parseInt(document.getElementById('extend-days').value);
+  const msg = document.getElementById('extend-msg');
+  if (!days || days < 1) { msg.textContent = 'Introduce un número válido'; msg.className = 'msg err'; return; }
+  try {
+    const r = await fetch(`${SERVER}/v1/admin/extend?key=${encodeURIComponent(currentKey)}&days=${days}&admin_secret=${encodeURIComponent(SECRET)}`, {method:'POST'});
+    const d = await r.json();
+    if (d.success) {
+      msg.textContent = `✓ Licencia ampliada hasta ${d.new_expires}`;
+      msg.className = 'msg ok';
+      setTimeout(() => { closeModal('extend-modal'); loadLicenses(); }, 1500);
+    } else {
+      msg.textContent = d.message || 'Error';
+      msg.className = 'msg err';
+    }
+  } catch(e) { msg.textContent = 'Error de conexión'; msg.className = 'msg err'; }
+}
+
+async function revokeLicense(key, email) {
+  if (!confirm(`¿Revocar licencia de ${email}?`)) return;
+  try {
+    const r = await fetch(`${SERVER}/v1/admin/revoke?key=${encodeURIComponent(key)}&admin_secret=${encodeURIComponent(SECRET)}`, {method:'POST'});
+    const d = await r.json();
+    if (d.success) { loadLicenses(); }
+    else alert(d.message || 'Error');
+  } catch(e) { alert('Error de conexión'); }
+}
+
+async function generateLicense() {
+  const email = document.getElementById('gen-email').value.trim();
+  const plan = document.getElementById('gen-plan').value;
+  const days = parseInt(document.getElementById('gen-days').value);
+  const msg = document.getElementById('gen-msg');
+  if (!email || !email.includes('@')) { msg.textContent = 'Email inválido'; msg.className = 'msg err'; return; }
+  try {
+    const r = await fetch(`${SERVER}/v1/license/generate`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email, plan, expires_days: days, admin_secret: SECRET})
+    });
+    const d = await r.json();
+    if (d.key) {
+      msg.textContent = `✓ Licencia ${d.key} generada y enviada a ${email}`;
+      msg.className = 'msg ok';
+      document.getElementById('gen-email').value = '';
+      loadLicenses();
+    } else {
+      msg.textContent = d.detail || 'Error';
+      msg.className = 'msg err';
+    }
+  } catch(e) { msg.textContent = 'Error de conexión'; msg.className = 'msg err'; }
+}
+</script>
+</body>
+</html>

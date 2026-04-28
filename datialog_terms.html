@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datialog — Términos y Condiciones / Terms & Conditions</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #f8f5ee; color: #1a2744; line-height: 1.7; }
+nav { background: #0a1628; padding: 16px 40px; display: flex; align-items: center; gap: 16px; }
+.logo { font-size: 20px; font-style: italic; color: #4f8ef7; font-family: Georgia, serif; text-decoration: none; }
+main { max-width: 800px; margin: 0 auto; padding: 60px 32px; }
+.lang-sw { display: flex; gap: 8px; margin-bottom: 40px; }
+.lang-btn { padding: 6px 16px; border-radius: 6px; border: 1px solid #1e4db7; cursor: pointer; font-size: 13px; background: transparent; color: #1e4db7; }
+.lang-btn.active { background: #1e4db7; color: #fff; }
+.doc { display: none; }
+.doc.active { display: block; }
+h1 { font-size: 28px; margin-bottom: 8px; color: #0a1628; }
+.date { font-size: 12px; color: #8896b0; margin-bottom: 40px; font-family: monospace; }
+h2 { font-size: 17px; margin: 32px 0 12px; color: #1e4db7; }
+p { margin-bottom: 14px; font-size: 14px; color: #374151; }
+ul { margin: 0 0 14px 20px; font-size: 14px; color: #374151; }
+ul li { margin-bottom: 6px; }
+.highlight { background: #edf1f9; border-left: 3px solid #1e4db7; padding: 12px 16px; border-radius: 4px; margin: 16px 0; font-size: 13px; }
+footer { text-align: center; padding: 32px; font-size: 12px; color: #8896b0; border-top: 1px solid #e5e7eb; margin-top: 60px; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://datialog.app" class="logo">Datialog</a>
+</nav>
+<main>
+  <div class="lang-sw">
+    <button class="lang-btn active" onclick="setLang('es', this)">ES</button>
+    <button class="lang-btn" onclick="setLang('en', this)">EN</button>
+  </div>
+
+  <!-- ESPAÑOL -->
+  <div class="doc active" id="doc-es">
+    <h1>Términos y Condiciones de Uso</h1>
+    <div class="date">Última actualización: 28 de abril de 2026</div>
+
+    <div class="highlight">
+      Al descargar, instalar o usar Datialog, aceptas estos términos en su totalidad. Si no estás de acuerdo, no uses el software.
+    </div>
+
+    <h2>1. Descripción del servicio</h2>
+    <p>Datialog es una herramienta de software para el análisis de datos mediante inteligencia artificial, desarrollada por Iván Pastor Sanz (en adelante "el autor"). Se distribuye como aplicación de escritorio local para Windows.</p>
+
+    <h2>2. Licencia de uso</h2>
+    <p>El autor concede al usuario una licencia personal, no exclusiva, intransferible y revocable para usar Datialog en un único dispositivo, sujeta a los siguientes términos:</p>
+    <ul>
+      <li>Uso personal, académico o profesional propio</li>
+      <li>Prohibida la redistribución, reventa o sublicencia</li>
+      <li>Prohibida la ingeniería inversa o descompilación del software</li>
+      <li>Una licencia = un dispositivo</li>
+    </ul>
+
+    <h2>3. Limitación de responsabilidad</h2>
+    <div class="highlight">
+      Datialog se proporciona "tal cual" (AS IS), sin garantías de ningún tipo, expresas o implícitas.
+    </div>
+    <p>El autor no será responsable en ningún caso de:</p>
+    <ul>
+      <li>Errores, imprecisiones o sesgos en los análisis generados por los modelos de IA</li>
+      <li>Decisiones tomadas basándose en los resultados de Datialog</li>
+      <li>Pérdida de datos, lucro cesante o daños indirectos de cualquier tipo</li>
+      <li>Incompatibilidades con el hardware o software del usuario</li>
+      <li>Interrupciones en el servicio de licencias o en las APIs externas</li>
+    </ul>
+    <p>El usuario asume toda la responsabilidad sobre el uso que haga del software y sobre la verificación de los resultados antes de tomar decisiones importantes.</p>
+
+    <h2>4. APIs externas y privacidad de datos</h2>
+    <p>Datialog puede conectarse a APIs de terceros (OpenAI, Anthropic, Groq) a elección del usuario. El autor advierte expresamente que:</p>
+    <ul>
+      <li>Al usar APIs externas, las consultas y el contexto de los datos se envían a los servidores de dichos proveedores</li>
+      <li>El carácter de privacidad local de Datialog se pierde al usar APIs externas</li>
+      <li>El usuario es responsable de revisar las políticas de privacidad de cada proveedor</li>
+      <li>El autor no tiene control ni responsabilidad sobre el tratamiento de datos por parte de terceros</li>
+    </ul>
+    <p>Con modelos locales (Ollama), los datos no salen del dispositivo del usuario.</p>
+
+    <h2>5. Financiación voluntaria</h2>
+    <p>Datialog es gratuito. El autor acepta donaciones voluntarias a través de Ko-fi (ko-fi.com/datialog) para cubrir los costes de infraestructura. Las donaciones no implican ningún servicio adicional ni soporte técnico formal.</p>
+    <p>No se procesan pagos obligatorios. No se almacenan datos de tarjetas de crédito.</p>
+
+    <h2>6. Modificaciones</h2>
+    <p>El autor se reserva el derecho de modificar estos términos en cualquier momento. Los cambios se comunicarán en datialog.app. El uso continuado del software implica la aceptación de los nuevos términos.</p>
+
+    <h2>7. Jurisdicción</h2>
+    <p>Estos términos se rigen por la legislación española. Para cualquier disputa, las partes se someten a los juzgados y tribunales de Madrid, España.</p>
+
+    <h2>8. Contacto</h2>
+    <p>Para cualquier consulta: <a href="mailto:licencias@datialog.app" style="color:#1e4db7">licencias@datialog.app</a></p>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="doc" id="doc-en">
+    <h1>Terms and Conditions of Use</h1>
+    <div class="date">Last updated: April 28, 2026</div>
+
+    <div class="highlight">
+      By downloading, installing or using Datialog, you accept these terms in full. If you do not agree, do not use the software.
+    </div>
+
+    <h2>1. Service description</h2>
+    <p>Datialog is a data analysis software tool using artificial intelligence, developed by Iván Pastor Sanz (hereinafter "the author"). It is distributed as a local desktop application for Windows.</p>
+
+    <h2>2. License of use</h2>
+    <p>The author grants the user a personal, non-exclusive, non-transferable and revocable license to use Datialog on a single device, subject to the following terms:</p>
+    <ul>
+      <li>Personal, academic or professional use only</li>
+      <li>Redistribution, resale or sublicensing is prohibited</li>
+      <li>Reverse engineering or decompilation of the software is prohibited</li>
+      <li>One license = one device</li>
+    </ul>
+
+    <h2>3. Limitation of liability</h2>
+    <div class="highlight">
+      Datialog is provided "AS IS", without warranties of any kind, express or implied.
+    </div>
+    <p>The author shall not be liable in any case for:</p>
+    <ul>
+      <li>Errors, inaccuracies or biases in analyses generated by AI models</li>
+      <li>Decisions made based on Datialog results</li>
+      <li>Data loss, loss of profits or indirect damages of any kind</li>
+      <li>Incompatibilities with the user's hardware or software</li>
+      <li>Interruptions in the license service or external APIs</li>
+    </ul>
+    <p>The user assumes full responsibility for their use of the software and for verifying results before making important decisions.</p>
+
+    <h2>4. External APIs and data privacy</h2>
+    <p>Datialog can connect to third-party APIs (OpenAI, Anthropic, Groq) at the user's choice. The author expressly warns that:</p>
+    <ul>
+      <li>When using external APIs, queries and data context are sent to those providers' servers</li>
+      <li>The local privacy nature of Datialog is lost when using external APIs</li>
+      <li>The user is responsible for reviewing each provider's privacy policies</li>
+      <li>The author has no control or responsibility over data processing by third parties</li>
+    </ul>
+    <p>With local models (Ollama), data does not leave the user's device.</p>
+
+    <h2>5. Voluntary funding</h2>
+    <p>Datialog is free. The author accepts voluntary donations through Ko-fi (ko-fi.com/datialog) to cover infrastructure costs. Donations do not imply any additional service or formal technical support.</p>
+    <p>No mandatory payments are processed. No credit card data is stored.</p>
+
+    <h2>6. Modifications</h2>
+    <p>The author reserves the right to modify these terms at any time. Changes will be communicated at datialog.app. Continued use of the software implies acceptance of the new terms.</p>
+
+    <h2>7. Jurisdiction</h2>
+    <p>These terms are governed by Spanish law. For any dispute, the parties submit to the courts and tribunals of Madrid, Spain.</p>
+
+    <h2>8. Contact</h2>
+    <p>For any enquiry: <a href="mailto:licencias@datialog.app" style="color:#1e4db7">licencias@datialog.app</a></p>
+  </div>
+
+</main>
+<footer>
+  © Iván Pastor · 2026 · Datialog · <a href="https://datialog.app" style="color:#8896b0">datialog.app</a>
+</footer>
+<script>
+function setLang(l, btn) {
+  document.querySelectorAll('.doc').forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('doc-' + l).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
