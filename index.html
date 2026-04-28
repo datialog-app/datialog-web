@@ -800,7 +800,7 @@ nav {
 <section class="pricing" id="pricing">
   <div style="text-align:center">
     <div class="section-label" id="price-label">Apoyo</div>
-    <h2 class="section-title" id="price-title">Datialog es gratuito</h2>
+    <h2 class="section-title" id="price-title">Gratis. Siempre. / Free. Always.</h2>
     <p class="section-sub" style="margin:0 auto 48px" id="price-sub">
       ES: Datialog es un proyecto personal desarrollado en mis ratos libres. Si te ha resultado útil, puedes invitarme a un café — con eso es suficiente para mantenerlo vivo.<br><br>
       EN: Datialog is a personal project developed in my spare time. If you found it useful, you can buy me a coffee — that is enough to keep it alive.
@@ -819,9 +819,13 @@ nav {
     flex-wrap:wrap;gap:20px;box-shadow:0 12px 40px rgba(30,77,183,.3)">
     <div>
       <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.7);
-        text-transform:uppercase;margin-bottom:6px" id="trial-label">Prueba gratuita</div>
-      <div style="font-size:22px;font-family:var(--serif);color:#fff;margin-bottom:4px" id="trial-title">5 días gratis, sin tarjeta</div>
-      <div style="font-size:13px;color:rgba(255,255,255,.75)" id="trial-sub">Acceso completo durante 5 días. Solo necesitas tu email. ¿Correo universitario? <a href="#student" style="color:#fbbf24;text-decoration:underline">30 días gratis</a>.</div>
+        text-transform:uppercase;margin-bottom:6px" id="trial-label">Registro gratuito / Free registration</div>
+      <div style="font-size:22px;font-family:var(--serif);color:#fff;margin-bottom:4px" id="trial-title">1 año gratis, sin tarjeta</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.75)" id="trial-sub">
+        ES: Regístrate con tu email y obtén acceso completo durante 1 año.<br>
+        EN: Register with your email and get full access for 1 year.
+        ¿Correo universitario? <a href="#student" style="color:#fbbf24;text-decoration:underline">ver oferta especial</a>.
+      </div>
     </div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
       <input type="email" id="trial-email" placeholder="tu@email.com"
@@ -830,7 +834,7 @@ nav {
       <button onclick="requestTrial()" id="trial-btn"
         style="padding:10px 24px;background:#fff;color:var(--blue);border:none;border-radius:8px;
         font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap">
-        Empezar trial →</button>
+        ES: Registrarme gratis → / EN: Register free →</button>
     </div>
     <div id="trial-msg" style="width:100%;font-size:12px;color:rgba(255,255,255,.8);min-height:16px"></div>
   </div>
@@ -1018,10 +1022,10 @@ const T = {
     f5t: 'Modo Chat', f5p: 'Pregunta teoría estadística, definiciones o metodología sin necesidad de tener datos cargados.',
     f6t: 'Checkpoint & Undo', f6p: '¿Te equivocaste en una transformación? Vuelve atrás con un clic. Checkpoints automáticos de tu dataset.',
     how_label: 'Cómo funciona', how_title: 'De cero a análisis<br>en 4 pasos',
-    s1t: 'Descarga', s1p: 'Descarga gratis el ZIP y ejecuta instalar.bat. Python, Ollama y el modelo de IA se instalan solos.',
-    s2t: 'Prueba', s2p: 'Datialog arranca sin licencia. Pruébalo con tus datos durante 5 días gratis.',
+    s1t: 'Descarga', s1p: 'Descarga gratis el ZIP y ejecuta instalar.bat. Todo se instala automáticamente.',
+    s2t: 'Regístrate', s2p: 'Introduce tu email en datialog.app y recibe tu clave de acceso gratuita para 1 año.',
     s3t: 'Analiza', s3p: 'Arrastra tu CSV, Excel, Stata o SAS. Pregunta en lenguaje natural y obtén resultados.',
-    s4t: 'Activa', s4p: 'Si te gusta, activa tu licencia desde la propia app o desde datialog.app. Solo 12.10€/año.',
+    s4t: 'Renueva', s4p: 'Al año vuelves a registrarte gratis. Si quieres apoyar el proyecto, invítanos a un café en ko-fi.com/datialog.',
     price_label: 'Precios', price_title: 'Simple. Transparente.',
     price_sub: 'Prueba 1 día gratis sin compromiso. El precio de 12.10€/año cubre únicamente los costes mínimos de dominio y servidor — no es un precio de mercado, es simbólico.',
     trial_label: 'Prueba gratuita', trial_title: '5 días gratis, sin tarjeta',
@@ -1088,10 +1092,10 @@ const T = {
     f5t: 'Chat mode', f5p: 'Ask statistical theory, definitions or methodology without needing data loaded.',
     f6t: 'Checkpoint & Undo', f6p: 'Made a mistake in a transformation? Go back with one click. Automatic checkpoints of your dataset.',
     how_label: 'How it works', how_title: 'From zero to analysis<br>in 4 steps',
-    s1t: 'Download', s1p: 'Download the ZIP for free and run instalar.bat. Python, Ollama and the AI model install automatically.',
-    s2t: 'Try it', s2p: 'Datialog starts without a license. Try it with your data for 5 free days.',
+    s1t: 'Download', s1p: 'Download the ZIP for free and run instalar.bat. Everything installs automatically.',
+    s2t: 'Register', s2p: 'Enter your email at datialog.app and receive your free access key for 1 year.',
     s3t: 'Analyze', s3p: 'Drag your CSV, Excel, Stata or SAS. Ask in plain language and get results.',
-    s4t: 'Activate', s4p: 'If you like it, activate your license from the app or from datialog.app. Just €12.10/year.',
+    s4t: 'Renew', s4p: 'After one year, register again for free. If you want to support the project, buy us a coffee at ko-fi.com/datialog.',
     price_label: 'Pricing', price_title: 'Simple. Transparent.',
     price_sub: 'Download free, install and try it. Once you see it works on your PC, activate your license. The €12.10/year price only covers the minimum costs of domain and server.',
     trial_label: 'Free trial', trial_title: '5 days free, no credit card',
