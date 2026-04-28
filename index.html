@@ -625,7 +625,7 @@ nav {
       <button class="lang-btn" onclick="setLang('en')">EN</button>
       
     </div>
-    <a href="#pricing" class="btn-primary" style="padding:9px 20px;font-size:13px" data-i="nav_cta">Comprar →</a>
+    <a href="#pricing" class="btn-primary" style="padding:9px 20px;font-size:13px" data-i="nav_cta">Descargar →</a>
   </div>
 </nav>
 
@@ -640,7 +640,7 @@ nav {
       Sin código. Sin cloud. <strong>100% privado en tu ordenador.</strong>
     </p>
     <div class="cta-group">
-      <a href="#pricing" class="btn-primary" id="cta-buy">Obtener licencia →</a>
+      <a href="https://drive.google.com/uc?export=download&id=TU_ID_AQUI" class="btn-primary" id="cta-buy" download>⬇ Descargar gratis</a>
       <a href="#how" class="btn-secondary" id="cta-how">Ver cómo funciona</a>
     </div>
     <div class="trust-row">
@@ -742,7 +742,7 @@ nav {
   <div style="text-align:center">
     <div class="section-label" id="price-label">Precios</div>
     <h2 class="section-title" id="price-title">Simple. Transparente.</h2>
-    <p class="section-sub" style="margin:0 auto 64px" id="price-sub">Prueba 5 días gratis sin compromiso. El precio de 12.10€/año cubre únicamente los costes mínimos de dominio y servidor — no es un precio de mercado, es simbólico.</p>
+    <p class="section-sub" style="margin:0 auto 64px" id="price-sub">Descarga gratis, instala y prueba. Cuando veas que funciona en tu PC, activa tu licencia. El precio de 12.10€/año cubre únicamente los costes mínimos de dominio y servidor.</p>
   </div>
   <div style="background:linear-gradient(135deg,#1e4db7,#2f65d4);border-radius:14px;padding:28px 36px;
     max-width:680px;margin:0 auto 40px;display:flex;align-items:center;justify-content:space-between;
@@ -969,11 +969,11 @@ nav {
 const T = {
   es: {
     nav_features: 'Funcionalidades', nav_how: 'Cómo funciona', nav_pricing: 'Precios',
-    nav_req: 'Requisitos', nav_cta: 'Comprar →',
+    nav_req: 'Requisitos', nav_cta: 'Descargar →',
     badge: 'IA local · Tus datos nunca salen',
     h1_line1: 'Habla con', h1_line2: 'tus datos.', h1_em: 'En español.',
     tagline: 'Datialog convierte tus <strong>CSVs, Excels y bases de datos</strong> en conversaciones. Sin código. Sin cloud. <strong>100% privado en tu ordenador.</strong>',
-    cta_buy: 'Obtener licencia →', cta_how: 'Ver cómo funciona',
+    cta_buy: '⬇ Descargar gratis', cta_how: 'Ver cómo funciona',
     trust1: 'Datos 100% locales', trust2: 'Sin suscripción cloud', trust3: 'Para investigadores y analistas',
     feat_label: 'Funcionalidades',
     feat_title: 'Todo lo que necesitas<br>para analizar datos sin código',
@@ -985,10 +985,10 @@ const T = {
     f5t: 'Modo Chat', f5p: 'Pregunta teoría estadística, definiciones o metodología sin necesidad de tener datos cargados.',
     f6t: 'Checkpoint & Undo', f6p: '¿Te equivocaste en una transformación? Vuelve atrás con un clic. Checkpoints automáticos de tu dataset.',
     how_label: 'Cómo funciona', how_title: 'De cero a análisis<br>en 4 pasos',
-    s1t: 'Instala', s1p: 'Ejecuta instalar.bat. Python, Ollama y el modelo de IA se instalan solos.',
-    s2t: 'Activa', s2p: 'Introduce tu clave de licencia. Un clic y Datialog queda vinculado a tu dispositivo.',
-    s3t: 'Carga', s3p: 'Arrastra tu CSV, Excel, Stata o SAS. Datialog analiza la estructura automáticamente.',
-    s4t: 'Pregunta', s4p: 'Escribe en lenguaje natural. Datialog genera, ejecuta y muestra los resultados.',
+    s1t: 'Descarga', s1p: 'Descarga gratis el ZIP y ejecuta instalar.bat. Python, Ollama y el modelo de IA se instalan solos.',
+    s2t: 'Prueba', s2p: 'Datialog arranca sin licencia. Pruébalo con tus datos durante 5 días gratis.',
+    s3t: 'Analiza', s3p: 'Arrastra tu CSV, Excel, Stata o SAS. Pregunta en lenguaje natural y obtén resultados.',
+    s4t: 'Activa', s4p: 'Si te gusta, activa tu licencia desde la propia app o desde datialog.app. Solo 12.10€/año.',
     price_label: 'Precios', price_title: 'Simple. Transparente.',
     price_sub: 'Prueba 1 día gratis sin compromiso. El precio de 12.10€/año cubre únicamente los costes mínimos de dominio y servidor — no es un precio de mercado, es simbólico.',
     trial_label: 'Prueba gratuita', trial_title: '5 días gratis, sin tarjeta',
@@ -1031,11 +1031,11 @@ const T = {
   },
   en: {
     nav_features: 'Features', nav_how: 'How it works', nav_pricing: 'Pricing',
-    nav_req: 'Requirements', nav_cta: 'Buy →',
+    nav_req: 'Requirements', nav_cta: 'Download →',
     badge: 'Local AI · Your data never leaves',
     h1_line1: 'Talk to', h1_line2: 'your data.', h1_em: 'In plain English.',
     tagline: 'Datialog turns your <strong>CSVs, Excel files and databases</strong> into conversations. No code. No cloud. <strong>100% private on your computer.</strong>',
-    cta_buy: 'Get license →', cta_how: 'See how it works',
+    cta_buy: '⬇ Download free', cta_how: 'See how it works',
     trust1: '100% local data', trust2: 'No cloud subscription', trust3: 'For researchers & analysts',
     feat_label: 'Features',
     feat_title: 'Everything you need<br>to analyze data without code',
@@ -1047,12 +1047,12 @@ const T = {
     f5t: 'Chat mode', f5p: 'Ask statistical theory, definitions or methodology without needing data loaded.',
     f6t: 'Checkpoint & Undo', f6p: 'Made a mistake in a transformation? Go back with one click. Automatic checkpoints of your dataset.',
     how_label: 'How it works', how_title: 'From zero to analysis<br>in 4 steps',
-    s1t: 'Install', s1p: 'Run instalar.bat. Python, Ollama and the AI model install automatically.',
-    s2t: 'Activate', s2p: 'Enter your license key. One click and Datialog is linked to your device.',
-    s3t: 'Load', s3p: 'Drag your CSV, Excel, Stata or SAS. Datialog analyzes the structure automatically.',
-    s4t: 'Ask', s4p: 'Write in plain language. Datialog generates, executes and shows results.',
+    s1t: 'Download', s1p: 'Download the ZIP for free and run instalar.bat. Python, Ollama and the AI model install automatically.',
+    s2t: 'Try it', s2p: 'Datialog starts without a license. Try it with your data for 5 free days.',
+    s3t: 'Analyze', s3p: 'Drag your CSV, Excel, Stata or SAS. Ask in plain language and get results.',
+    s4t: 'Activate', s4p: 'If you like it, activate your license from the app or from datialog.app. Just €12.10/year.',
     price_label: 'Pricing', price_title: 'Simple. Transparent.',
-    price_sub: 'Try free for 1 day with no commitment. The €12.10/year price only covers the minimum costs of domain and server — it is symbolic, not a market price.',
+    price_sub: 'Download free, install and try it. Once you see it works on your PC, activate your license. The €12.10/year price only covers the minimum costs of domain and server.',
     trial_label: 'Free trial', trial_title: '5 days free, no credit card',
     trial_sub: 'Full access for 5 days. Just your email. University email: 30 days free.',
     trial_cta: 'Start trial →',
