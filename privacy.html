@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anialyze — Política de Privacidad / Privacy Policy</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #f8f5ee; color: #1a2744; line-height: 1.7; }
+nav { background: #0a1628; padding: 16px 40px; display: flex; align-items: center; gap: 16px; }
+.logo { font-size: 20px; font-style: italic; color: #4f8ef7; font-family: Georgia, serif; text-decoration: none; }
+main { max-width: 800px; margin: 0 auto; padding: 60px 32px; }
+.lang-sw { display: flex; gap: 8px; margin-bottom: 40px; }
+.lang-btn { padding: 6px 16px; border-radius: 6px; border: 1px solid #1e4db7; cursor: pointer; font-size: 13px; background: transparent; color: #1e4db7; }
+.lang-btn.active { background: #1e4db7; color: #fff; }
+.doc { display: none; }
+.doc.active { display: block; }
+h1 { font-size: 28px; margin-bottom: 8px; color: #0a1628; }
+.date { font-size: 12px; color: #8896b0; margin-bottom: 40px; font-family: monospace; }
+h2 { font-size: 17px; margin: 32px 0 12px; color: #1e4db7; }
+p { margin-bottom: 14px; font-size: 14px; color: #374151; }
+ul { margin: 0 0 14px 20px; font-size: 14px; color: #374151; }
+ul li { margin-bottom: 6px; }
+.highlight { background: #edf1f9; border-left: 3px solid #1e4db7; padding: 12px 16px; border-radius: 4px; margin: 16px 0; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+th { background: #edf1f9; padding: 10px 14px; text-align: left; font-weight: 600; border: 1px solid #e5e7eb; }
+td { padding: 10px 14px; border: 1px solid #e5e7eb; }
+footer { text-align: center; padding: 32px; font-size: 12px; color: #8896b0; border-top: 1px solid #e5e7eb; margin-top: 60px; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://anialyze.app" class="logo">Anialyze</a>
+</nav>
+<main>
+  <div class="lang-sw">
+    <button class="lang-btn active" onclick="setLang('es', this)">ES</button>
+    <button class="lang-btn" onclick="setLang('en', this)">EN</button>
+  </div>
+
+  <!-- ESPAÑOL -->
+  <div class="doc active" id="doc-es">
+    <h1>Política de Privacidad</h1>
+    <div class="date">Última actualización: 28 de abril de 2026</div>
+
+    <div class="highlight">
+      Anialyze está diseñado con la privacidad como principio fundamental. Con modelos locales, ningún dato tuyo sale de tu dispositivo.
+    </div>
+
+    <h2>1. Responsable del tratamiento</h2>
+    <p>Iván Pastor Sanz<br>
+    Email: <a href="mailto:licencias@anialyze.app" style="color:#1e4db7">licencias@anialyze.app</a><br>
+    Web: anialyze.app</p>
+
+    <h2>2. Datos que recopilamos</h2>
+    <table>
+      <tr><th>Dato</th><th>Para qué</th><th>Base legal</th><th>Retención</th></tr>
+      <tr><td>Email</td><td>Enviar licencia de activación</td><td>Ejecución de contrato</td><td>Mientras la licencia esté activa</td></tr>
+      <tr><td>Fingerprint del dispositivo</td><td>Vincular licencia a un dispositivo</td><td>Ejecución de contrato</td><td>Mientras la licencia esté activa</td></tr>
+      <tr><td>Donaciones voluntarias</td><td>Soporte al proyecto (opcional)</td><td>Consentimiento</td><td>Gestionado por Ko-fi (no las almacenamos)</td></tr>
+    </table>
+    <p><strong>No recopilamos:</strong> datos de uso, analíticas, cookies de seguimiento, ni contenido de tus datasets.</p>
+
+    <h2>3. Tus datos de análisis</h2>
+    <div class="highlight">
+      Con modelos locales (Ollama): tus datos nunca salen de tu dispositivo. El análisis ocurre completamente en local.
+    </div>
+    <p>Con APIs externas (OpenAI, Anthropic, Groq) elegidas por el usuario:</p>
+    <ul>
+      <li>Las consultas y el contexto de los datos se envían al proveedor correspondiente</li>
+      <li>Cada proveedor tiene su propia política de privacidad</li>
+      <li>El autor no tiene acceso ni control sobre esos datos</li>
+    </ul>
+
+    <h2>4. Compartición de datos</h2>
+    <p>Solo compartimos datos con:</p>
+    <ul>
+      <li><strong>Ko-fi</strong> — donaciones voluntarias (política: ko-fi.com/privacy)</li>
+      <li><strong>Resend</strong> — envío de emails transaccionales (política: resend.com/privacy)</li>
+      <li><strong>Railway</strong> — hosting del servidor de licencias (política: railway.app/privacy)</li>
+    </ul>
+    <p>No vendemos ni cedemos datos a terceros para fines comerciales.</p>
+
+    <h2>5. Tus derechos (RGPD)</h2>
+    <p>Tienes derecho a:</p>
+    <ul>
+      <li><strong>Acceso:</strong> saber qué datos tenemos sobre ti</li>
+      <li><strong>Rectificación:</strong> corregir datos incorrectos</li>
+      <li><strong>Supresión:</strong> eliminar tus datos ("derecho al olvido")</li>
+      <li><strong>Portabilidad:</strong> recibir tus datos en formato estructurado</li>
+      <li><strong>Oposición:</strong> oponerte al tratamiento</li>
+    </ul>
+    <p>Para ejercer cualquier derecho: <a href="mailto:licencias@anialyze.app" style="color:#1e4db7">licencias@anialyze.app</a></p>
+
+    <h2>6. Seguridad</h2>
+    <p>Los datos de licencias se almacenan en servidores seguros de Railway (Frankfurt, UE). La comunicación se realiza siempre mediante HTTPS.</p>
+
+    <h2>7. Cookies</h2>
+    <p>La landing page (anialyze.app) no usa cookies de seguimiento ni analíticas. Solo se usa sessionStorage para recordar si cerraste el banner de licencia durante la sesión.</p>
+
+    <h2>8. Cambios en esta política</h2>
+    <p>Cualquier cambio se publicará en esta página. Para cambios significativos se notificará por email a los usuarios con licencia activa.</p>
+
+    <h2>9. Contacto y reclamaciones</h2>
+    <p>Para cualquier consulta: <a href="mailto:licencias@anialyze.app" style="color:#1e4db7">licencias@anialyze.app</a></p>
+    <p>Si consideras que el tratamiento de tus datos no es correcto, puedes presentar reclamación ante la Agencia Española de Protección de Datos (aepd.es).</p>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="doc" id="doc-en">
+    <h1>Privacy Policy</h1>
+    <div class="date">Last updated: April 28, 2026</div>
+
+    <div class="highlight">
+      Anialyze is designed with privacy as a core principle. With local models, none of your data leaves your device.
+    </div>
+
+    <h2>1. Data controller</h2>
+    <p>Iván Pastor Sanz<br>
+    Email: <a href="mailto:licencias@anialyze.app" style="color:#1e4db7">licencias@anialyze.app</a><br>
+    Web: anialyze.app</p>
+
+    <h2>2. Data we collect</h2>
+    <table>
+      <tr><th>Data</th><th>Purpose</th><th>Legal basis</th><th>Retention</th></tr>
+      <tr><td>Email address</td><td>Send activation license</td><td>Contract performance</td><td>While license is active</td></tr>
+      <tr><td>Device fingerprint</td><td>Bind license to one device</td><td>Contract performance</td><td>While license is active</td></tr>
+      <tr><td>Voluntary donations</td><td>Project support (optional)</td><td>Consent</td><td>Managed by Ko-fi (not stored by us)</td></tr>
+    </table>
+    <p><strong>We do not collect:</strong> usage data, analytics, tracking cookies, or the content of your datasets.</p>
+
+    <h2>3. Your analysis data</h2>
+    <div class="highlight">
+      With local models (Ollama): your data never leaves your device. Analysis happens completely locally.
+    </div>
+    <p>With external APIs (OpenAI, Anthropic, Groq) chosen by the user:</p>
+    <ul>
+      <li>Queries and data context are sent to the respective provider</li>
+      <li>Each provider has its own privacy policy</li>
+      <li>The author has no access or control over that data</li>
+    </ul>
+
+    <h2>4. Data sharing</h2>
+    <p>We only share data with:</p>
+    <ul>
+      <li><strong>Ko-fi</strong> — voluntary donations (policy: ko-fi.com/privacy)</li>
+      <li><strong>Resend</strong> — transactional email sending (policy: resend.com/privacy)</li>
+      <li><strong>Railway</strong> — license server hosting (policy: railway.app/privacy)</li>
+    </ul>
+    <p>We do not sell or share data with third parties for commercial purposes.</p>
+
+    <h2>5. Your rights (GDPR)</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li><strong>Access:</strong> know what data we hold about you</li>
+      <li><strong>Rectification:</strong> correct inaccurate data</li>
+      <li><strong>Erasure:</strong> delete your data ("right to be forgotten")</li>
+      <li><strong>Portability:</strong> receive your data in a structured format</li>
+      <li><strong>Objection:</strong> object to processing</li>
+    </ul>
+    <p>To exercise any right: <a href="mailto:licencias@anialyze.app" style="color:#1e4db7">licencias@anialyze.app</a></p>
+
+    <h2>6. Security</h2>
+    <p>License data is stored on Railway's secure servers (Frankfurt, EU). All communication uses HTTPS.</p>
+
+    <h2>7. Cookies</h2>
+    <p>The landing page (anialyze.app) uses no tracking cookies or analytics. Only sessionStorage is used to remember if you closed the license banner during the session.</p>
+
+    <h2>8. Changes to this policy</h2>
+    <p>Any changes will be published on this page. For significant changes, users with active licenses will be notified by email.</p>
+
+    <h2>9. Contact and complaints</h2>
+    <p>For any enquiry: <a href="mailto:licencias@anialyze.app" style="color:#1e4db7">licencias@anialyze.app</a></p>
+    <p>If you believe your data is not being processed correctly, you may file a complaint with the Spanish Data Protection Agency (aepd.es).</p>
+  </div>
+
+</main>
+<footer>
+  © Iván Pastor · 2026 · Anialyze · <a href="https://anialyze.app" style="color:#8896b0">anialyze.app</a>
+</footer>
+<script>
+function setLang(l, btn) {
+  document.querySelectorAll('.doc').forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('doc-' + l).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
