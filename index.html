@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anialyze — Natural AI Data Explorer</title>
+<title>Datialog — Natural AI Data Explorer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -614,7 +614,7 @@ nav {
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Anialyze</div>
+  <div class="nav-logo">Datialog</div>
   <div class="nav-links">
     <a href="#features" data-i="nav_features">Funcionalidades</a>
     <a href="#how" data-i="nav_how">Cómo funciona</a>
@@ -626,7 +626,7 @@ nav {
       <button class="lang-btn" onclick="setLang('en')">EN</button>
       
     </div>
-    <a href="https://drive.google.com/uc?export=download&id=1S5n_CVy2dReqkdyHsOLeHnmRNF5s9Y1v" class="btn-primary" style="padding:9px 20px;font-size:13px">⬇ Descargar</a>
+    <a href="https://drive.google.com/uc?export=download&id=1S5n_CVy2dReqkdyHsOLeHnmRNF5s9Y1v" class="btn-primary" style="padding:9px 20px;font-size:13px" id="nav-cta-btn">⬇ Descargar</a>
   </div>
 </nav>
 
@@ -637,7 +637,7 @@ nav {
     <div class="badge" id="badge">IA local · Tus datos nunca salen</div>
     <h1><span id="h1-line1">Habla con</span><br><span id="h1-line2">tus datos.</span><br><em id="h1-em">En español.</em></h1>
     <p class="tagline" id="tagline">
-      Anialyze convierte tus <strong>CSVs, Excels y bases de datos</strong> en conversaciones. 
+      Datialog convierte tus <strong>CSVs, Excels y bases de datos</strong> en conversaciones. 
       Sin código. Sin cloud. <strong>100% privado en tu ordenador.</strong>
     </p>
     <div class="cta-group">
@@ -652,11 +652,11 @@ nav {
   </div>
   <div class="hero-right">
     <div class="chat-mockup">
-      <div class="chat-header"><div class="chat-dot"></div><span id="chat-label">Anialyze · Natural AI Data Explorer</span></div>
+      <div class="chat-header"><div class="chat-dot"></div><span id="chat-label">Datialog · Natural AI Data Explorer</span></div>
       <div class="chat-body">
         <div class="msg-user" id="chat-q1">¿Cuál es el ROA medio por sector?</div>
         <div class="msg-bot">
-          <div class="msg-bot-label" id="chat-code-label">Anialyze · Código generado</div>
+          <div class="msg-bot-label" id="chat-code-label">Datialog · Código generado</div>
           <div class="code-block">print(df.groupby('Sector')['roa_ult']<br>&nbsp;&nbsp;.mean().sort_values(ascending=False)<br>&nbsp;&nbsp;.round(2))</div>
           <div class="result-block">Tecnologia &nbsp;&nbsp;&nbsp; 18.4%<br>Farmacia &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15.2%<br>Banca &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12.8%<br>Energia &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9.1%</div>
         </div>
@@ -680,7 +680,7 @@ nav {
     <div class="feature-card">
       <span class="feature-icon">🗣️</span>
       <h3 id="f1t">Lenguaje natural</h3>
-      <p id="f1p">Pregunta en español, inglés o francés. Anialyze entiende lo que quieres y genera el código Python automáticamente.</p>
+      <p id="f1p">Pregunta en español, inglés o francés. Datialog entiende lo que quieres y genera el código Python automáticamente.</p>
     </div>
     <div class="feature-card">
       <span class="feature-icon">🔒</span>
@@ -723,17 +723,17 @@ nav {
     <div class="step">
       <div class="step-num">2</div>
       <h4 id="s2t">Activa</h4>
-      <p id="s2p">Introduce tu clave de licencia. Un clic y Anialyze queda vinculado a tu dispositivo.</p>
+      <p id="s2p">Introduce tu clave de licencia. Un clic y Datialog queda vinculado a tu dispositivo.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <h4 id="s3t">Carga</h4>
-      <p id="s3p">Arrastra tu CSV, Excel, Stata o SAS. Anialyze analiza la estructura automáticamente.</p>
+      <p id="s3p">Arrastra tu CSV, Excel, Stata o SAS. Datialog analiza la estructura automáticamente.</p>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <h4 id="s4t">Pregunta</h4>
-      <p id="s4p">Escribe en lenguaje natural. Anialyze genera, ejecuta y muestra los resultados.</p>
+      <p id="s4p">Escribe en lenguaje natural. Datialog genera, ejecuta y muestra los resultados.</p>
     </div>
   </div>
 </section>
@@ -789,7 +789,7 @@ nav {
           </iframe>
         </div>
         <p style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5" id="video2-desc">
-          Desde cero hasta Anialyze funcionando en tu PC en minutos.
+          Desde cero hasta Datialog funcionando en tu PC en minutos.
         </p>
       </div>
 
@@ -802,10 +802,10 @@ nav {
     <div class="section-label" id="price-label">Apoyo</div>
     <h2 class="section-title" id="price-title">Gratis. Siempre.</h2>
     <p class="section-sub" style="margin:0 auto 48px" id="price-sub">
-      ES: Anialyze es un proyecto personal desarrollado en mis ratos libres. Si te ha resultado útil, puedes invitarme a un café — con eso es suficiente para mantenerlo vivo.<br><br>
-      EN: Anialyze is a personal project developed in my spare time. If you found it useful, you can buy me a coffee — that is enough to keep it alive.
+      ES: Datialog es un proyecto personal desarrollado en mis ratos libres. Si te ha resultado útil, puedes invitarme a un café — con eso es suficiente para mantenerlo vivo.<br><br>
+      EN: Datialog is a personal project developed in my spare time. If you found it useful, you can buy me a coffee — that is enough to keep it alive.
     </p>
-    <a href="https://ko-fi.com/anialyze" target="_blank"
+    <a href="https://ko-fi.com/datialog" target="_blank"
       style="display:inline-flex;align-items:center;gap:10px;background:#FF5E5B;color:#fff;
       padding:14px 32px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:600;
       font-family:var(--sans);box-shadow:0 8px 24px rgba(255,94,91,.3);transition:all .2s;margin-bottom:48px"
@@ -822,8 +822,8 @@ nav {
         text-transform:uppercase;margin-bottom:6px" id="trial-label">Acceso gratuito / Free access</div>
       <div style="font-size:22px;font-family:var(--serif);color:#fff;margin-bottom:4px" id="trial-title">Gratis. Siempre.</div>
       <div style="font-size:13px;color:rgba(255,255,255,.75)" id="trial-sub">
-        ES: Anialyze es gratuito. Pedimos tu email solo para gestionar el acceso y garantizar la estabilidad del servicio.<br>
-        EN: Anialyze is free. We only ask for your email to manage access and ensure service stability.
+        ES: Datialog es gratuito. Pedimos tu email solo para gestionar el acceso y garantizar la estabilidad del servicio.<br>
+        EN: Datialog is free. We only ask for your email to manage access and ensure service stability.
       </div>
     </div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
@@ -846,7 +846,7 @@ nav {
   <div class="privacy-text">
     <div class="section-label" style="color:var(--accent)" id="priv-label">Privacidad primero</div>
     <h2><span id="priv-title">Tus datos son tuyos.</span><br><em style="font-style:italic;color:var(--accent)" id="priv-em">Siempre.</em></h2>
-    <p id="priv-p1">A diferencia de ChatGPT o herramientas cloud, Anialyze procesa todo en tu ordenador. El modelo de IA corre en local con Ollama — ningún dato tuyo viaja a servidores externos.</p>
+    <p id="priv-p1">A diferencia de ChatGPT o herramientas cloud, Datialog procesa todo en tu ordenador. El modelo de IA corre en local con Ollama — ningún dato tuyo viaja a servidores externos.</p>
     <p id="priv-p2">Ideal para datos sensibles: financieros, clínicos, empresariales o de investigación con restricciones de privacidad.</p>
   </div>
   <div class="privacy-stats">
@@ -875,7 +875,7 @@ nav {
   <div style="max-width:900px;margin:0 auto">
     <div class="section-label" id="req-label">Requisitos del sistema</div>
     <h2 class="section-title" id="req-title">¿Funciona en mi ordenador?</h2>
-    <p class="section-sub" id="req-sub">Anialyze está diseñado para funcionar en ordenadores estándar. No necesitas un PC gaming ni GPU dedicada para empezar.</p>
+    <p class="section-sub" id="req-sub">Datialog está diseñado para funcionar en ordenadores estándar. No necesitas un PC gaming ni GPU dedicada para empezar.</p>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px">
 
@@ -952,7 +952,7 @@ nav {
       <div>
         <strong style="font-size:14px;color:var(--navy)" id="req-tip-title">¿Ordenador antiguo?</strong>
         <p style="font-size:13px;color:#4a5568;margin-top:4px;line-height:1.6" id="req-tip-text">
-          Puedes usar Anialyze con Groq (gratuito) o las APIs de OpenAI y Anthropic sin instalar Ollama ni descargar modelos. 
+          Puedes usar Datialog con Groq (gratuito) o las APIs de OpenAI y Anthropic sin instalar Ollama ni descargar modelos. 
           Solo necesitas una conexión a internet y tu clave de API. Las respuestas son instantáneas.
         </p>
       </div>
@@ -964,16 +964,16 @@ nav {
 <section style="padding:40px 80px;background:#060e1a;border-top:1px solid rgba(255,255,255,.06)">
   <div style="max-width:800px;margin:0 auto;text-align:center">
     <p style="font-size:12px;color:#4a5568;line-height:1.8" id="disclaimer-text">
-      <strong style="color:#6b7280">Aviso legal:</strong> Anialyze es una herramienta de apoyo al análisis de datos. El autor no se responsabiliza de los resultados obtenidos ni de posibles errores generados por los modelos de IA. El usuario es el único responsable de verificar los resultados antes de tomar decisiones importantes.
+      <strong style="color:#6b7280">Aviso legal:</strong> Datialog es una herramienta de apoyo al análisis de datos. El autor no se responsabiliza de los resultados obtenidos ni de posibles errores generados por los modelos de IA. El usuario es el único responsable de verificar los resultados antes de tomar decisiones importantes.
       <br><br><strong style="color:#6b7280">Privacidad:</strong> Con modelos locales (Ollama) los datos no salen de tu dispositivo. Al usar APIs externas (OpenAI, Anthropic, Groq) las consultas y el contexto de los datos se envían a sus servidores — el usuario asume esta responsabilidad y debe revisar sus políticas de privacidad antes de usar datos sensibles.
     </p>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">Anialyze</div>
+  <div class="footer-logo">Datialog</div>
   <div class="footer-links">
-    <a href="mailto:hola@anialyze.app" id="footer-support">Soporte</a>
+    <a href="mailto:hola@datialog.app" id="footer-support">Soporte</a>
     <a href="/terms.html" id="footer-terms">Términos y Condiciones</a>
     <a href="/privacy.html" id="footer-privacy">Política de Privacidad</a>
     <a href="#" id="footer-license">Licencia CC BY-NC 4.0</a>
@@ -988,13 +988,13 @@ const T = {
     nav_req: 'Requisitos', nav_cta: 'Descargar →',
     badge: 'IA local · Tus datos nunca salen',
     h1_line1: 'Habla con', h1_line2: 'tus datos.', h1_em: 'En español.',
-    tagline: 'Anialyze convierte tus <strong>CSVs, Excels y bases de datos</strong> en conversaciones. Sin código. Sin cloud. <strong>100% privado en tu ordenador.</strong>',
+    tagline: 'Datialog convierte tus <strong>CSVs, Excels y bases de datos</strong> en conversaciones. Sin código. Sin cloud. <strong>100% privado en tu ordenador.</strong>',
     cta_buy: '⬇ Descargar gratis', cta_how: 'Ver cómo funciona',
     trust1: 'Datos 100% locales', trust2: 'Sin suscripción cloud', trust3: 'Para investigadores y analistas',
     feat_label: 'Funcionalidades',
     feat_title: 'Todo lo que necesitas<br>para analizar datos sin código',
     feat_sub: 'Diseñado para investigadores, analistas financieros y profesores que quieren extraer insights de sus datos sin depender de programadores.',
-    f1t: 'Lenguaje natural', f1p: 'Pregunta en español, inglés o francés. Anialyze entiende lo que quieres y genera el código Python automáticamente.',
+    f1t: 'Lenguaje natural', f1p: 'Pregunta en español, inglés o francés. Datialog entiende lo que quieres y genera el código Python automáticamente.',
     f2t: '100% privado', f2p: 'Tus datos nunca salen de tu ordenador. El modelo de IA corre en local con Ollama. Sin cloud, sin riesgos de GDPR.',
     f3t: 'EDA automático', f3p: 'Genera informes de análisis exploratorio completos con un clic. Distribuciones, correlaciones, outliers y nulos.',
     f4t: 'Visualizaciones', f4p: 'Gráficos interactivos con matplotlib, seaborn y plotly. Histogramas, scatter plots, heatmaps y más.',
@@ -1002,13 +1002,13 @@ const T = {
     f6t: 'Checkpoint & Undo', f6p: '¿Te equivocaste en una transformación? Vuelve atrás con un clic. Checkpoints automáticos de tu dataset.',
     how_label: 'Cómo funciona', how_title: 'De cero a análisis<br>en 4 pasos',
     s1t: 'Descarga', s1p: 'Descarga gratis el ZIP y ejecuta instalar.bat. Todo se instala automáticamente.',
-    s2t: 'Regístrate', s2p: 'Introduce tu email en anialyze.app y recibe tu clave de acceso gratuita para 1 año.',
+    s2t: 'Regístrate', s2p: 'Introduce tu email en datialog.app y recibe tu clave de acceso gratuita para 1 año.',
     s3t: 'Analiza', s3p: 'Arrastra tu CSV, Excel, Stata o SAS. Pregunta en lenguaje natural y obtén resultados.',
-    s4t: 'Renueva', s4p: 'Al año vuelves a registrarte gratis. Si quieres apoyar el proyecto, invítanos a un café en ko-fi.com/anialyze.',
+    s4t: 'Renueva', s4p: 'Al año vuelves a registrarte gratis. Si quieres apoyar el proyecto, invítanos a un café en ko-fi.com/datialog.',
     price_label: 'Precios', price_title: 'Simple. Transparente.',
     price_sub: 'Prueba 1 día gratis sin compromiso. El precio de 12.10€/año cubre únicamente los costes mínimos de dominio y servidor — no es un precio de mercado, es simbólico.',
     trial_label: 'Acceso gratuito', trial_title: 'Gratis. Siempre.',
-    trial_sub: 'Anialyze es gratuito. Pedimos tu email solo para gestionar el acceso y garantizar la estabilidad del servicio.',
+    trial_sub: 'Datialog es gratuito. Pedimos tu email solo para gestionar el acceso y garantizar la estabilidad del servicio.',
     trial_cta: 'Empezar trial →',
     p1name: 'Gratis', p1price: 'Gratis', p1period: '1 año · con email',
     p1f1: 'Acceso completo 1 año', p1f2: 'Modelos locales (Ollama)', p1f3: 'Todos los formatos',
@@ -1019,11 +1019,11 @@ const T = {
     p2f5: 'Actualizaciones durante 1 año', p2f6: 'Soporte por email', p2btn: 'Suscribirse →',
     api_disclaimer: '* El uso de APIs externas (OpenAI, Anthropic, Groq) requiere una clave de API propia de cada proveedor. Con estas APIs, los datos viajan a sus servidores. Para máxima privacidad usa Ollama en local.',
     priv_label: 'Privacidad primero', priv_title: 'Tus datos son tuyos.', priv_em: 'Siempre.',
-    priv_p1: 'A diferencia de ChatGPT o herramientas cloud, Anialyze procesa todo en tu ordenador. El modelo de IA corre en local con Ollama — ningún dato tuyo viaja a servidores externos.',
+    priv_p1: 'A diferencia de ChatGPT o herramientas cloud, Datialog procesa todo en tu ordenador. El modelo de IA corre en local con Ollama — ningún dato tuyo viaja a servidores externos.',
     priv_p2: 'Ideal para datos sensibles: financieros, clínicos, empresariales o de investigación con restricciones de privacidad.',
     stat1l: 'datos enviados a la nube', stat2l: 'formatos soportados', stat3l: 'idiomas disponibles', stat4l: 'consultas sin límite',
     req_label: 'Requisitos del sistema', req_title: '¿Funciona en mi ordenador?',
-    req_sub: 'Anialyze está diseñado para funcionar en ordenadores estándar. No necesitas un PC gaming ni GPU dedicada para empezar.',
+    req_sub: 'Datialog está diseñado para funcionar en ordenadores estándar. No necesitas un PC gaming ni GPU dedicada para empezar.',
     req_min_label: 'Mínimo (Ollama local)', req_rec_label: 'Recomendado (máximo rendimiento)',
     req_os_label: 'Sistema operativo:', req_os: 'Windows 10/11, macOS 12+, Ubuntu 20+',
     req_ram_label: 'RAM:', req_ram: '8 GB mínimo (16 GB recomendado)',
@@ -1038,33 +1038,33 @@ const T = {
     req_gpu_label: 'GPU (opcional):', req_gpu: 'NVIDIA 8GB+ VRAM para máxima velocidad',
     req_rec_note: '⚡ Con esta configuración los modelos responden en 2-5 segundos en local.',
     req_tip_title: '¿Ordenador antiguo?',
-    req_tip_text: 'Puedes usar Anialyze con Groq (gratuito) o las APIs de OpenAI y Anthropic sin instalar Ollama ni descargar modelos. Solo necesitas una conexión a internet y tu clave de API. Las respuestas son instantáneas.',
-    disclaimer_text: '<strong style="color:#6b7280">Aviso legal:</strong> Anialyze es una herramienta de apoyo al análisis de datos. El autor no se responsabiliza de los resultados obtenidos, decisiones tomadas a partir de los mismos, ni de posibles errores en los análisis generados por los modelos de inteligencia artificial. El usuario es el único responsable del uso que haga de la herramienta y de la verificación de los resultados. Los modelos de IA pueden cometer errores — siempre contrasta los resultados antes de tomar decisiones importantes. <strong style="color:#6b7280">Privacidad:</strong> Cuando se utilizan modelos locales (Ollama, LM Studio) los datos no salen del dispositivo del usuario. Sin embargo, al usar APIs externas como OpenAI, Anthropic o Groq, las consultas y el contexto de los datos se envían a los servidores de dichos proveedores, perdiendo el carácter de privacidad local. El usuario asume la responsabilidad de esta elección y debe revisar las políticas de privacidad de cada proveedor antes de usar sus APIs con datos sensibles.',
+    req_tip_text: 'Puedes usar Datialog con Groq (gratuito) o las APIs de OpenAI y Anthropic sin instalar Ollama ni descargar modelos. Solo necesitas una conexión a internet y tu clave de API. Las respuestas son instantáneas.',
+    disclaimer_text: '<strong style="color:#6b7280">Aviso legal:</strong> Datialog es una herramienta de apoyo al análisis de datos. El autor no se responsabiliza de los resultados obtenidos, decisiones tomadas a partir de los mismos, ni de posibles errores en los análisis generados por los modelos de inteligencia artificial. El usuario es el único responsable del uso que haga de la herramienta y de la verificación de los resultados. Los modelos de IA pueden cometer errores — siempre contrasta los resultados antes de tomar decisiones importantes. <strong style="color:#6b7280">Privacidad:</strong> Cuando se utilizan modelos locales (Ollama, LM Studio) los datos no salen del dispositivo del usuario. Sin embargo, al usar APIs externas como OpenAI, Anthropic o Groq, las consultas y el contexto de los datos se envían a los servidores de dichos proveedores, perdiendo el carácter de privacidad local. El usuario asume la responsabilidad de esta elección y debe revisar las políticas de privacidad de cada proveedor antes de usar sus APIs con datos sensibles.',
     videos_label: 'Demo', videos_title: 'Míralo en acción',
     videos_sub: 'Vídeos con subtítulos en español e inglés',
     video1_label: '📊 DEMO — Análisis de datos',
     video1_desc: 'Carga un dataset financiero y analízalo en lenguaje natural.',
     video2_label: '⚙️ INSTALACIÓN — Guía paso a paso',
-    video2_desc: 'Desde cero hasta Anialyze funcionando en tu PC en minutos.',
+    video2_desc: 'Desde cero hasta Datialog funcionando en tu PC en minutos.',
     terms_link: 'Términos y Condiciones',
     privacy_link: 'Política de Privacidad',
     footer_support: 'Soporte', footer_docs: 'Documentación', footer_license: 'Licencia CC BY-NC 4.0',
-    chat_label: 'Anialyze · Natural AI Data Explorer',
+    chat_label: 'Datialog · Natural AI Data Explorer',
     chat_q1: '¿Cuál es el ROA medio por sector?', chat_q2: 'Ahora filtra solo las empresas exportadoras',
-    chat_placeholder: 'Escribe una pregunta sobre tus datos…', chat_code_label: 'Anialyze · Código generado',
+    chat_placeholder: 'Escribe una pregunta sobre tus datos…', chat_code_label: 'Datialog · Código generado',
   },
   en: {
     nav_features: 'Features', nav_how: 'How it works', nav_pricing: 'Pricing',
     nav_req: 'Requirements', nav_cta: 'Download →',
     badge: 'Local AI · Your data never leaves',
     h1_line1: 'Talk to', h1_line2: 'your data.', h1_em: 'In plain English.',
-    tagline: 'Anialyze turns your <strong>CSVs, Excel files and databases</strong> into conversations. No code. No cloud. <strong>100% private on your computer.</strong>',
+    tagline: 'Datialog turns your <strong>CSVs, Excel files and databases</strong> into conversations. No code. No cloud. <strong>100% private on your computer.</strong>',
     cta_buy: '⬇ Download free', cta_how: 'See how it works',
     trust1: '100% local data', trust2: 'No cloud subscription', trust3: 'For researchers & analysts',
     feat_label: 'Features',
     feat_title: 'Everything you need<br>to analyze data without code',
     feat_sub: 'Designed for researchers, financial analysts and professors who want to extract insights from their data without depending on developers.',
-    f1t: 'Natural language', f1p: 'Ask in Spanish, English or French. Anialyze understands what you want and generates Python code automatically.',
+    f1t: 'Natural language', f1p: 'Ask in Spanish, English or French. Datialog understands what you want and generates Python code automatically.',
     f2t: '100% private', f2p: 'Your data never leaves your computer. The AI model runs locally with Ollama. No cloud, no GDPR risks.',
     f3t: 'Automatic EDA', f3p: 'Generate complete exploratory analysis reports with one click. Distributions, correlations, outliers and nulls.',
     f4t: 'Visualizations', f4p: 'Interactive charts with matplotlib, seaborn and plotly. Histograms, scatter plots, heatmaps and more.',
@@ -1072,13 +1072,13 @@ const T = {
     f6t: 'Checkpoint & Undo', f6p: 'Made a mistake in a transformation? Go back with one click. Automatic checkpoints of your dataset.',
     how_label: 'How it works', how_title: 'From zero to analysis<br>in 4 steps',
     s1t: 'Download', s1p: 'Download the ZIP for free and run instalar.bat. Everything installs automatically.',
-    s2t: 'Register', s2p: 'Enter your email at anialyze.app and receive your free access key for 1 year.',
+    s2t: 'Register', s2p: 'Enter your email at datialog.app and receive your free access key for 1 year.',
     s3t: 'Analyze', s3p: 'Drag your CSV, Excel, Stata or SAS. Ask in plain language and get results.',
-    s4t: 'Renew', s4p: 'After one year, register again for free. If you want to support the project, buy us a coffee at ko-fi.com/anialyze.',
+    s4t: 'Renew', s4p: 'After one year, register again for free. If you want to support the project, buy us a coffee at ko-fi.com/datialog.',
     price_label: 'Pricing', price_title: 'Free. Always.',
-    price_sub: 'Anialyze is free. Register with your email and get full access for 1 year. ',
+    price_sub: 'Datialog is free. Register with your email and get full access for 1 year. ',
     trial_label: 'Free access', trial_title: 'Free. Always.',
-    trial_sub: 'Anialyze is free. We only ask for your email to manage access and ensure service stability.',
+    trial_sub: 'Datialog is free. We only ask for your email to manage access and ensure service stability.',
     trial_cta: 'Get access →',
     p1name: 'Free', p1price: 'Free', p1period: '1 year · email only',
     p1f1: 'Full access for 1 year', p1f2: 'Local models (Ollama)', p1f3: 'All formats',
@@ -1089,11 +1089,11 @@ const T = {
     p2f5: '1 year of updates', p2f6: 'Email support', p2btn: 'Register free →',
     api_disclaimer: '* Using external APIs (OpenAI, Anthropic, Groq) requires your own API key from each provider. With these APIs, your query data travels to their servers. For maximum privacy use Ollama locally.',
     priv_label: 'Privacy first', priv_title: 'Your data is yours.', priv_em: 'Always.',
-    priv_p1: 'Unlike ChatGPT or cloud tools, Anialyze processes everything on your computer. The AI model runs locally with Ollama — none of your data travels to external servers.',
+    priv_p1: 'Unlike ChatGPT or cloud tools, Datialog processes everything on your computer. The AI model runs locally with Ollama — none of your data travels to external servers.',
     priv_p2: 'Ideal for sensitive data: financial, clinical, business or research data with privacy restrictions.',
     stat1l: 'data sent to cloud', stat2l: 'supported formats', stat3l: 'available languages', stat4l: 'unlimited queries',
     req_label: 'System requirements', req_title: 'Will it run on my computer?',
-    req_sub: 'Anialyze is designed to run on standard computers. You do not need a gaming PC or dedicated GPU to get started.',
+    req_sub: 'Datialog is designed to run on standard computers. You do not need a gaming PC or dedicated GPU to get started.',
     req_min_label: 'Minimum (local Ollama)', req_rec_label: 'Recommended (maximum performance)',
     req_os_label: 'Operating system:', req_os: 'Windows 10/11, macOS 12+, Ubuntu 20+',
     req_ram_label: 'RAM:', req_ram: '8 GB minimum (16 GB recommended)',
@@ -1108,20 +1108,20 @@ const T = {
     req_gpu_label: 'GPU (optional):', req_gpu: 'NVIDIA 8GB+ VRAM for maximum speed',
     req_rec_note: '⚡ With this setup local models respond in 2-5 seconds.',
     req_tip_title: 'Older computer?',
-    req_tip_text: 'You can use Anialyze with Groq (free) or OpenAI and Anthropic APIs without installing Ollama or downloading models. You just need an internet connection and your API key. Responses are instant.',
-    disclaimer_text: '<strong style="color:#6b7280">Legal notice:</strong> Anialyze is a data analysis support tool. The author is not responsible for the results obtained, decisions made based on them, or possible errors in analyses generated by artificial intelligence models. The user is solely responsible for their use of the tool and for verifying results. AI models can make mistakes — always verify results before making important decisions. <strong style="color:#6b7280">Privacy:</strong> When using local models (Ollama, LM Studio) data does not leave the user device. However, when using external APIs such as OpenAI, Anthropic or Groq, queries and data context are sent to those providers servers, losing the local privacy guarantee. The user assumes responsibility for this choice and should review each provider privacy policy before using their APIs with sensitive data.',
+    req_tip_text: 'You can use Datialog with Groq (free) or OpenAI and Anthropic APIs without installing Ollama or downloading models. You just need an internet connection and your API key. Responses are instant.',
+    disclaimer_text: '<strong style="color:#6b7280">Legal notice:</strong> Datialog is a data analysis support tool. The author is not responsible for the results obtained, decisions made based on them, or possible errors in analyses generated by artificial intelligence models. The user is solely responsible for their use of the tool and for verifying results. AI models can make mistakes — always verify results before making important decisions. <strong style="color:#6b7280">Privacy:</strong> When using local models (Ollama, LM Studio) data does not leave the user device. However, when using external APIs such as OpenAI, Anthropic or Groq, queries and data context are sent to those providers servers, losing the local privacy guarantee. The user assumes responsibility for this choice and should review each provider privacy policy before using their APIs with sensitive data.',
     videos_label: 'Demo', videos_title: 'See it in action',
     videos_sub: 'Videos with Spanish and English subtitles',
     video1_label: '📊 DEMO — Data analysis',
     video1_desc: 'Load a financial dataset and analyze it in natural language.',
     video2_label: '⚙️ INSTALLATION — Step by step guide',
-    video2_desc: 'From scratch to Anialyze running on your PC in minutes.',
+    video2_desc: 'From scratch to Datialog running on your PC in minutes.',
     terms_link: 'Terms & Conditions',
     privacy_link: 'Privacy Policy',
     footer_support: 'Support', footer_docs: 'Documentation', footer_license: 'CC BY-NC 4.0 License',
-    chat_label: 'Anialyze · Natural AI Data Explorer',
+    chat_label: 'Datialog · Natural AI Data Explorer',
     chat_q1: 'What is the average ROA by sector?', chat_q2: 'Now filter only exporting companies',
-    chat_placeholder: 'Ask a question about your data…', chat_code_label: 'Anialyze · Generated code',
+    chat_placeholder: 'Ask a question about your data…', chat_code_label: 'Datialog · Generated code',
   },
 
 };
@@ -1146,7 +1146,7 @@ async function requestTrial() {
   btn.textContent = '⏳ Enviando…';
   btn.disabled = true;
   try {
-    const resp = await fetch('https://anialyze-license-server-production.up.railway.app/v1/trial', {
+    const resp = await fetch('https://datialog-license-server-production.up.railway.app/v1/trial', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({email: email})
@@ -1184,6 +1184,7 @@ function applyTranslations() {
   const _el_h1_em = document.getElementById('h1-em'); if(_el_h1_em) _el_h1_em.textContent = t.h1_em || '';
   const _taglineEl = document.getElementById('tagline'); if(_taglineEl) _taglineEl.innerHTML = t.tagline || '';
   const _el_cta_buy = document.getElementById('cta-buy'); if(_el_cta_buy) _el_cta_buy.textContent = t.cta_buy || '';
+  const _el_nav_cta_btn = document.getElementById('nav-cta-btn'); if(_el_nav_cta_btn) _el_nav_cta_btn.textContent = (lang === 'en' ? '⬇ Download' : '⬇ Descargar');
   const _el_cta_how = document.getElementById('cta-how'); if(_el_cta_how) _el_cta_how.textContent = t.cta_how || '';
   const _el_trust1 = document.getElementById('trust1'); if(_el_trust1) _el_trust1.textContent = t.trust1 || '';
   const _el_trust2 = document.getElementById('trust2'); if(_el_trust2) _el_trust2.textContent = t.trust2 || '';
